@@ -1,0 +1,47 @@
+/* Styles de base */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.header__title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.header__nav {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Styles LIGHT */
+header.light {
+  background-color: white;
+  color: black;
+}
+
+header.light .header__nav a {
+  color: #333;
+}
+
+header.light .header__switchBtn {
+  background-color: #333;
+  color: white;
+}
+
+/* Styles DARK */
+header.dark {
+  background-color: #1a1a1a;
+  color: white;
+}
+
+header.dark .header__nav a {
+  color: #e0e0e0;
+}
+
+header.dark .header__switchBtn {
+  background-color: #f0f0f0;
+  color: #1a1a1a;
+}/*# sourceMappingURL=Header.css.map */
