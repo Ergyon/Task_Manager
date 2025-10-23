@@ -10,14 +10,14 @@ export const TaskProvider = ({ children }) => {
   }
 
   const deleteTask = (id) => {
-      setTasks(tasks.filter((task) => task.id !== id))
+    setTasks(tasks.filter((task) => task.id !== id))
   }
 
-  const finishTask = (id) => {
+  const toggleComplete = (id) => {
     setTasks(
-        tasks.map((task) => {
-            task.id === id ? {...task, isComplete: !task.isComplete} : task
-        })
+      tasks.map((task) => {
+        task.id === id ? { ...task, isComplete: !task.isComplete } : task
+      })
     )
   }
 
@@ -25,18 +25,18 @@ export const TaskProvider = ({ children }) => {
     tasks,
     addTask,
     deleteTask,
-    finishTask
+    toggleComplete
   }
 
   return <TaskContext.Provider value={value}>{children}</TaskContext.Provider>
 }
 
-export const useTasks() => {
-    const context = useContext(TaskContext)
+export const useTasks = () => {
+  const context = useContext(TaskContext)
 
-    if (!context) {
-        throw new Error("UseTasks n'est pas dans TaskProvider")
-    }
+  if (!context) {
+    throw new Error("UseTasks n'est pas dans TaskProvider")
+  }
 
-    return context
+  return context
 }
