@@ -13,9 +13,13 @@ $mainColorLight: rgb(248, 248, 248);
 // secondary colors
 $lightGrey: rgba(218, 216, 216, 0.932);
 // cta colors
-$ctaDelete:  rgba(211, 18, 18, 0.795);
+$ctaDelete:  rgba(167, 13, 13, 0.795);
 $ctaComplete: rgba(21, 126, 56, 0.829);
 $ctaNew: rgba(14, 61, 148, 0.815);
+// utils colors
+$prioHigh: #ee4949; 
+$prioMediun: #faa81b; 
+$prioLow: #59cce0; 
 
 // shadows
 $shadowInsetLight: rgb(204, 219, 232) 2px 2px 3px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;

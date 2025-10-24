@@ -82,7 +82,7 @@ const TaskForm = () => {
         <div className="taskform__options">
           {/* categorie */}
           <div className="option-wrapper">
-            <label>Catégorie</label>
+            <label className="option-label">Catégorie</label>
             {categories.length > 0 && (
               <select
                 value={category}
@@ -107,9 +107,9 @@ const TaskForm = () => {
           </div>
           {/* Priorite */}
           <div className="option-wrapper">
-            <label>Priorité</label>
+            <label className="option-label">Priorité</label>
             <div className="prio-radios">
-              <label className="radio-label">
+              <label className="radio-label radio-high">
                 <input
                   type="radio"
                   name="priority"
@@ -117,8 +117,10 @@ const TaskForm = () => {
                   checked={priority === "high"}
                   onChange={(e) => setPriority(e.target.value)}
                 />
+                <span className="radio-custom"></span>
+                Haute
               </label>
-              <label className="radio-label">
+              <label className="radio-label radio-medium">
                 <input
                   type="radio"
                   name="priority"
@@ -126,8 +128,10 @@ const TaskForm = () => {
                   checked={priority === "medium"}
                   onChange={(e) => setPriority(e.target.value)}
                 />
+                <span className="radio-custom"></span>
+                Moyenne
               </label>
-              <label className="radio-label">
+              <label className="radio-label radio-low">
                 <input
                   type="radio"
                   name="priority"
@@ -135,11 +139,13 @@ const TaskForm = () => {
                   checked={priority === "low"}
                   onChange={(e) => setPriority(e.target.value)}
                 />
+                <span className="radio-custom"></span>
+                Basse
               </label>
             </div>
             {/* deadline */}
             <div className="option-wrapper">
-              <label>Deadline</label>
+              <label className="option-label">Deadline</label>
               <input
                 className="input-deadline"
                 type="date"
