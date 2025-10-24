@@ -5,8 +5,12 @@
     min-width: 50%;
     font-family: $fontText;
     margin-bottom: 1.5rem;
+
+    // input nouvelle tache
     &__input {
+        appearance: none;
         font-size: 1rem;
+        font-weight: 600;
         box-shadow: $shadowInsetLight;
         height: 2.5rem;
         width: 100%;
@@ -14,8 +18,19 @@
         border: none;
         padding-inline: 6px;
         margin-right: 0.5rem;
+        
+
+        &::placeholder {
+            font-weight: 400;
+            opacity: 0.9;
+        }
+
+        &:focus {
+            outline-color: $lightGrey;
+        }
     }
 
+    // boutons
     &__btn {
         border: none;
         @include alignCenter;
@@ -53,29 +68,31 @@
     }
 }
 
+// menu options
 .option-wrapper {
     background-color: lighten($lightGrey, 10%);
     text-align: center;
     padding: 6px;
     border-radius: 6px;
 }
-.option-wrapper label {
-    font-weight: 500;
+.option-label {
     margin-right: 10px;
-    font-size: 1.1rem;
+    font-weight: 600;
 }
+
 .option-wrapper select {
-   width: 2rem;
-   height: 1rem;
-   border: none;
-   border-radius: 6px;
-   background-color: lighten($mainColorDark, 15%);
-   color: $mainColorLight;
-   cursor: pointer;
+    appearance: none;
+    text-align: center;
+    width: 2rem;
+    height: 1rem;
+    border: none;
+    border-radius: 6px;
+    background-color: lighten($mainColorDark, 20%);
+    color: $mainColorLight;
+    cursor: pointer;
 }
 .option-wrapper select option {
     font-size: 15px;
-    padding-inline: 3px;
 }
 
 .option-wrapper input {
@@ -86,25 +103,109 @@
     border-radius: 6px;
     opacity: 0.8;
     box-shadow: $shadowInsetLight;
+    &:focus {
+        outline-color: $lightGrey;
+    }
 }
 
+// boutons radios priorites
 .prio-radios {
-    margin-bottom: 1rem;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
+    margin-bottom: 1.5rem;
+    margin-left: 1rem;
 }
-.radio-label input {
-    width: 16px;
-    height: 16px;
-    margin: 0;
+.radio-label {
     margin-top: 14px;
-    box-shadow: none;
+    font-size: 12px;
+    // font-weight: 400;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 2px;
     cursor: pointer;
+    transition: 0.2s ease;
+
+    input[type="radio"] {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+    
+    .radio-custom {
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        border-radius: 30%;
+        border: 1px solid black;
+        margin-right: 6px;
+        background-color: white;
+    }
 }
 
+// Priorité haute (rouge)
+.radio-high {
+  .radio-custom {
+    border-color: $prioHigh;
+  }
+  
+  input[type="radio"]:checked ~ .radio-custom {
+    background-color: $prioHigh;
+    border-color: $prioHigh;
+  }
+}
+
+// Priorité moyenne (orange)
+.radio-medium {
+  .radio-custom {
+    border-color: $prioMediun;
+  }
+  
+  input[type="radio"]:checked ~ .radio-custom {
+    background-color: $prioMediun;
+    border-color: $prioMediun;
+  }
+}
+
+// Priorité basse (vert)
+.radio-low {
+  .radio-custom {
+    border-color: $prioLow;
+  }
+  
+  input[type="radio"]:checked ~ .radio-custom {
+    background-color: $prioLow;
+    border-color: $prioLow;
+  }
+}
+
+
+
+// deadline
 .input-deadline {
     font-family: $fontText;
     text-align: center;
     font-size: 1rem;
+}
+
+input[type="date"] {
+  &::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    filter: opacity(0.6);
+    transition: filter 0.2s ease;
+    
+    &:hover {
+      filter: opacity(1);
+    }
+  }
+  
+  // styles Firefox
+  &::-moz-calendar-picker-indicator {
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.2s ease;
+    
+    &:hover {
+      opacity: 1;
+    }
+  }
 }

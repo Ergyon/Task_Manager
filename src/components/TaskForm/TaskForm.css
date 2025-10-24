@@ -28,7 +28,11 @@ body.dark {
   margin-bottom: 1.5rem;
 }
 .taskform__input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   font-size: 1rem;
+  font-weight: 600;
   box-shadow: rgb(204, 219, 232) 2px 2px 3px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
   height: 2.5rem;
   width: 100%;
@@ -36,6 +40,17 @@ body.dark {
   border: none;
   padding-inline: 6px;
   margin-right: 0.5rem;
+}
+.taskform__input::-moz-placeholder {
+  font-weight: 400;
+  opacity: 0.9;
+}
+.taskform__input::placeholder {
+  font-weight: 400;
+  opacity: 0.9;
+}
+.taskform__input:focus {
+  outline-color: rgba(218, 216, 216, 0.932);
 }
 .taskform__btn {
   border: none;
@@ -78,25 +93,27 @@ body.dark {
   border-radius: 6px;
 }
 
-.option-wrapper label {
-  font-weight: 500;
+.option-label {
   margin-right: 10px;
-  font-size: 1.1rem;
+  font-weight: 600;
 }
 
 .option-wrapper select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  text-align: center;
   width: 2rem;
   height: 1rem;
   border: none;
   border-radius: 6px;
-  background-color: rgb(64.25, 64.25, 64.25);
+  background-color: #4d4d4d;
   color: rgb(248, 248, 248);
   cursor: pointer;
 }
 
 .option-wrapper select option {
   font-size: 15px;
-  padding-inline: 3px;
 }
 
 .option-wrapper input {
@@ -108,25 +125,86 @@ body.dark {
   opacity: 0.8;
   box-shadow: rgb(204, 219, 232) 2px 2px 3px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
 }
-
-.prio-radios {
-  margin-bottom: 1rem;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
+.option-wrapper input:focus {
+  outline-color: rgba(218, 216, 216, 0.932);
 }
 
-.radio-label input {
-  width: 16px;
-  height: 16px;
-  margin: 0;
+.prio-radios {
+  margin-bottom: 1.5rem;
+  margin-left: 1rem;
+}
+
+.radio-label {
   margin-top: 14px;
-  box-shadow: none;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 2px;
   cursor: pointer;
+  transition: 0.2s ease;
+}
+.radio-label input[type=radio] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.radio-label .radio-custom {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 30%;
+  border: 1px solid black;
+  margin-right: 6px;
+  background-color: white;
+}
+
+.radio-high .radio-custom {
+  border-color: #ee4949;
+}
+.radio-high input[type=radio]:checked ~ .radio-custom {
+  background-color: #ee4949;
+  border-color: #ee4949;
+}
+
+.radio-medium .radio-custom {
+  border-color: #faa81b;
+}
+.radio-medium input[type=radio]:checked ~ .radio-custom {
+  background-color: #faa81b;
+  border-color: #faa81b;
+}
+
+.radio-low .radio-custom {
+  border-color: #59cce0;
+}
+.radio-low input[type=radio]:checked ~ .radio-custom {
+  background-color: #59cce0;
+  border-color: #59cce0;
 }
 
 .input-deadline {
   font-family: "Inter";
   text-align: center;
   font-size: 1rem;
+}
+
+input[type=date]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  filter: opacity(0.6);
+  -webkit-transition: filter 0.2s ease;
+  transition: filter 0.2s ease;
+}
+input[type=date]::-webkit-calendar-picker-indicator:hover {
+  filter: opacity(1);
+}
+input[type=date]::-moz-calendar-picker-indicator {
+  cursor: pointer;
+  opacity: 0.6;
+  -moz-transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease;
+}
+input[type=date]::-moz-calendar-picker-indicator:hover {
+  opacity: 1;
 }/*# sourceMappingURL=TaskForm.css.map */
