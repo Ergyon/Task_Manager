@@ -1,0 +1,110 @@
+@use '../../index.scss' as*;
+
+.taskform {
+    @include flexCenterBetween;
+    min-width: 50%;
+    font-family: $fontText;
+    margin-bottom: 1.5rem;
+    &__input {
+        font-size: 1rem;
+        box-shadow: $shadowInsetLight;
+        height: 2.5rem;
+        width: 100%;
+        border-radius: 6px;
+        border: none;
+        padding-inline: 6px;
+        margin-right: 0.5rem;
+    }
+
+    &__btn {
+        border: none;
+        @include alignCenter;
+        border-radius: 10px;
+        text-align: center;
+        height: 2rem;
+        width: 2rem;
+        color: white;
+        background-color: $lightGrey;
+        cursor: pointer;
+        transition: 0.2s;
+        box-shadow: $shadowInsetLight2;
+        margin-left: 0.5rem;
+    }
+
+    &__optionsBtn:hover {
+        background-color: $mainColorDark;
+        color: white;
+    }
+
+    &__addBtn:hover {
+        background-color: $ctaNew;
+        color: $mainColorLight;
+    }
+
+    &__options {
+        width: 100%;
+        display: flex;
+        gap: 8px;
+        margin-inline: 1rem;
+        border: 4px double darken($lightGrey, 70%);
+        border-radius: 6px;
+        padding: 10px;
+        box-shadow: $shadowBoxModal;
+    }
+}
+
+.option-wrapper {
+    background-color: lighten($lightGrey, 10%);
+    text-align: center;
+    padding: 6px;
+    border-radius: 6px;
+}
+.option-wrapper label {
+    font-weight: 500;
+    margin-right: 10px;
+    font-size: 1.1rem;
+}
+.option-wrapper select {
+   width: 2rem;
+   height: 1rem;
+   border: none;
+   border-radius: 6px;
+   background-color: lighten($mainColorDark, 15%);
+   color: $mainColorLight;
+   cursor: pointer;
+}
+.option-wrapper select option {
+    font-size: 15px;
+    padding-inline: 3px;
+}
+
+.option-wrapper input {
+    margin-top: 12px;
+    border: none;
+    padding: 2px 6px;
+    height: 1.5rem;
+    border-radius: 6px;
+    opacity: 0.8;
+    box-shadow: $shadowInsetLight;
+}
+
+.prio-radios {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.radio-label input {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    margin-top: 14px;
+    box-shadow: none;
+    cursor: pointer;
+}
+
+.input-deadline {
+    font-family: $fontText;
+    text-align: center;
+    font-size: 1rem;
+}

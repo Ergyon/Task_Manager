@@ -1,9 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Jersey+20&family=Jost:ital,wght@0,100..900;1,100..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Pixelify+Sans:wght@400..700&family=Playwrite+US+Modern:wght@100..400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Jersey+20&family=Jost:ital,wght@0,100..900;1,100..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Pixelify+Sans:wght@400..700&family=Playwrite+US+Modern:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap");
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body.light {
+  background-color: white;
+}
+
+body.dark {
+  background-color: rgb(43.85, 43.85, 43.85);
+  color: rgb(248, 248, 248);
 }
 
 /* Styles de base */
@@ -22,19 +35,23 @@ header .header__title {
 }
 header .header__nav {
   display: flex;
-  gap: 5rem;
+  align-items: center;
   font-family: "Poppins";
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  gap: 4rem;
   margin-top: 4.5rem;
-  padding-bottom: 0.5rem;
+  margin-right: 5.2rem;
 }
 header .header__nav a {
   font-size: 1.3rem;
   font-weight: 400;
   text-decoration: none;
-  box-shadow: rgb(204, 219, 232) 2px 2px 3px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
-  padding: 0px 25px;
-  border-radius: 15px;
-  transition: 0.2s ease-in-out;
+  padding: 0px 15px;
+  border-radius: 20px;
 }
 header .header__switchBtn {
   font-family: "Jost";
@@ -58,23 +75,26 @@ header.light .header__nav a {
 }
 
 header.light .header__nav a:hover {
-  box-shadow: rgba(17, 17, 19, 0.1) -1px 2px 5px;
+  -webkit-text-decoration: underline 2px;
+          text-decoration: underline 2px;
+  text-decoration-color: #4d4d4d;
+  text-underline-offset: 3px;
 }
 
 header.light .header__nav a:focus {
   box-shadow: rgba(17, 17, 19, 0.1) -1px 2px 5px;
-  background-color: rgb(64.25, 64.25, 64.25);
+  background-color: #4d4d4d;
   color: rgb(248, 248, 248);
 }
 
 header.light .header__switchBtn {
-  background-color: rgb(51.5, 51.5, 51.5);
+  background-color: #1a1a1a;
   color: white;
 }
 
 header.light .header__switchBtn:hover {
-  background-color: rgb(89.75, 89.75, 89.75);
-  color: white;
+  background-color: rgba(218, 216, 216, 0.932);
+  color: black;
 }
 
 /* Styles DARK */
@@ -83,18 +103,24 @@ header.dark {
   color: white;
 }
 
+header.dark .header__nav {
+  box-shadow: 0 2px 3px rgba(134, 132, 132, 0.658);
+}
+
 header.dark .header__nav a {
-  color: #e0e0e0;
-  box-shadow: rgb(144, 147, 150) 1px 2px 2px 0px inset, rgba(2, 2, 2, 0.5) -2px -2px 2px 1px inset;
+  color: white;
 }
 
 header.dark .header__nav a:hover {
-  box-shadow: rgba(197, 197, 199, 0.61) -1px 2px 2px;
+  -webkit-text-decoration: underline 2px;
+          text-decoration: underline 2px;
+  text-decoration-color: rgba(218, 216, 216, 0.932);
+  text-underline-offset: 3px;
 }
 
 header.dark .header__nav a:focus {
-  box-shadow: rgba(197, 197, 199, 0.61) -1px 2px 2px;
-  background-color: rgb(248, 248, 248);
+  box-shadow: rgba(197, 197, 199, 0.685) -1px 2px 2px;
+  background-color: rgba(218, 216, 216, 0.932);
   color: #1a1a1a;
 }
 

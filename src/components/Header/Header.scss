@@ -2,9 +2,7 @@
 
 /* Styles de base */
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @include flexCenterBetween;
   padding: 1rem 5rem;
   margin-bottom: 2.5rem;
 
@@ -16,20 +14,19 @@ header {
 }
 
 .header__nav {
-  display: flex;
-  gap: 5rem;
-  font-family: $fontHead;
+  @include alignCenter;
+  @include navContainerLight;
+  gap: 4rem;
   margin-top: 4.5rem;
-  padding-bottom: 0.5rem;
+  margin-right: 5.2rem;
 }
+
 .header__nav a {
   font-size: 1.3rem;
   font-weight: 400;
   text-decoration: none;
-  box-shadow: $shadowNavLight;
-  padding: 0px 25px;
-  border-radius: 15px;
-  transition: 0.2s ease-in-out;
+  padding: 0px 15px;
+  border-radius: 20px;
 }
 
 .header__switchBtn {
@@ -55,41 +52,38 @@ header.light .header__nav a {
   color: $mainColorDark;
 }
 header.light .header__nav a:hover {
-  box-shadow: rgba(17, 17, 19, 0.1) -1px 2px 5px;
+  @include underlineLight;
 }
 header.light .header__nav a:focus {
-  box-shadow: rgba(17, 17, 19, 0.1) -1px 2px 5px;
-  background-color: lighten($mainColorDark, 15%);
-  color: $mainColorLight;
+  @include navFocusLight;
 }
 
 header.light .header__switchBtn {
-  background-color: lighten($mainColorDark, 10%);
+  background-color: $mainColorDark;
   color: white;
 }
 header.light .header__switchBtn:hover {
-  background-color: lighten($mainColorDark, 25%);
-  color: white;
+  background-color: $lightGrey;
+  color: black;
 }
 
 /* Styles DARK */
 header.dark {
   background-color: $mainColorDark;
   color: white;
-  
 }
 
+header.dark .header__nav {
+  box-shadow: $shadowDark;
+}
 header.dark .header__nav a {
-  color: #e0e0e0;
-  box-shadow: $shadowNavDark;
+  color: white;
 }
 header.dark .header__nav a:hover {
-  box-shadow: rgba(197, 197, 199, 0.61) -1px 2px 2px;
+  @include underlineDark;
 }
 header.dark .header__nav a:focus {
-  box-shadow: rgba(197, 197, 199, 0.61) -1px 2px 2px;
-  background-color: $mainColorLight;
-  color: $mainColorDark;
+  @include navFocusDark;
 }
 
 header.dark .header__switchBtn {
