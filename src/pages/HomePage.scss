@@ -1,0 +1,5 @@
+@use '../index.scss' as*;
+
+.home-container {
+    @include flexCenterColumn;
+}

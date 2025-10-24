@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 
+import { useEffect } from "react"
 import Header from "./components/Header/Header.jsx"
 import { TaskProvider } from "./contexts/TaskContext.jsx"
 import { ThemeProvider, useTheme } from "./contexts/ThemeContext"
@@ -21,6 +22,10 @@ function App() {
 
 const AppContent = () => {
   const { theme } = useTheme()
+
+  useEffect(() => {
+    document.body.className = theme
+  }, [theme])
 
   return (
     <div className={theme}>

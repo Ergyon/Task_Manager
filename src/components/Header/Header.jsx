@@ -7,7 +7,7 @@ const Header = () => {
 
   return (
     <header className={theme}>
-      <h1 className="header__title">Task Manager</h1>
+      <h1 className="header__title">Task Tracker</h1>
       <nav className="header__nav">
         <Link to="/">Tâches</Link>
         <Link to="/agenda">Agenda</Link>

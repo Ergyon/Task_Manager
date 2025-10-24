@@ -1,6 +1,7 @@
 import { useState } from "react"
 import Task from "../components/Task/Task"
 import { useTasks } from "../contexts/TaskContext"
+import "../pages/HomePage.css"
 
 const HomePage = () => {
   const [taskName, setTaskname] = useState("")

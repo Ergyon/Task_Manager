@@ -1,0 +1,103 @@
+@use '../../index.scss' as*;
+
+/* Styles de base */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5rem;
+  margin-bottom: 2.5rem;
+
+.header__title {
+  font-family: $fontTitle;
+  font-size: 3.3rem;
+  font-weight: 400;
+  margin: 0;
+}
+
+.header__nav {
+  display: flex;
+  gap: 5rem;
+  font-family: $fontHead;
+  margin-top: 4.5rem;
+  padding-bottom: 0.5rem;
+}
+.header__nav a {
+  font-size: 1.3rem;
+  font-weight: 400;
+  text-decoration: none;
+  box-shadow: $shadowNavLight;
+  padding: 0px 25px;
+  border-radius: 15px;
+  transition: 0.2s ease-in-out;
+}
+
+.header__switchBtn {
+  font-family: $fontGlobal;
+  font-weight: 300;
+  border: none;
+  border-radius: 10px;
+  padding-inline: 8px;
+  font-size: 1rem;
+  margin-right: 2.5rem;
+  transition: 0.2s ease;
+}
+}
+
+
+/* Styles LIGHT */
+header.light {
+  background-color: $mainColorLight;
+  color: $mainColorDark;
+}
+
+header.light .header__nav a {
+  color: $mainColorDark;
+}
+header.light .header__nav a:hover {
+  box-shadow: rgba(17, 17, 19, 0.1) -1px 2px 5px;
+}
+header.light .header__nav a:focus {
+  box-shadow: rgba(17, 17, 19, 0.1) -1px 2px 5px;
+  background-color: lighten($mainColorDark, 15%);
+  color: $mainColorLight;
+}
+
+header.light .header__switchBtn {
+  background-color: lighten($mainColorDark, 10%);
+  color: white;
+}
+header.light .header__switchBtn:hover {
+  background-color: lighten($mainColorDark, 25%);
+  color: white;
+}
+
+/* Styles DARK */
+header.dark {
+  background-color: $mainColorDark;
+  color: white;
+  
+}
+
+header.dark .header__nav a {
+  color: #e0e0e0;
+  box-shadow: $shadowNavDark;
+}
+header.dark .header__nav a:hover {
+  box-shadow: rgba(197, 197, 199, 0.61) -1px 2px 2px;
+}
+header.dark .header__nav a:focus {
+  box-shadow: rgba(197, 197, 199, 0.61) -1px 2px 2px;
+  background-color: $mainColorLight;
+  color: $mainColorDark;
+}
+
+header.dark .header__switchBtn {
+  background-color: darken($mainColorLight, 10%);
+  color: $mainColorDark;
+}
+header.dark .header__switchBtn:hover {
+  background-color: darken($mainColorLight, 45%);
+  color: white;
+}
+/*# sourceMappingURL=Header.css.map */

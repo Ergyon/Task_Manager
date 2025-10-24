@@ -1,11 +1,33 @@
-import { createContext, useContext, useState } from "react"
+import { createContext, useContext, useEffect, useState } from "react"
 
 const TaskContext = createContext()
 
 export const TaskProvider = ({ children }) => {
-  const [tasks, setTasks] = useState([])
-  const [categories, setCategories] = useState([])
+  // recuperer taches sauvegardees
+  const getTasks = () => {
+    const savedTasks = localStorage.getItem("tasks")
+    return savedTasks ? JSON.parse(savedTasks) : []
+  }
 
+  // recuperer categories sauvegardees
+  const getCategories = () => {
+    const savedCategories = localStorage.getItem("categories")
+    return savedCategories ? JSON.parse(savedCategories) : []
+  }
+
+  const [tasks, setTasks] = useState(getTasks)
+  const [categories, setCategories] = useState(getCategories)
+
+  // sauvegarde tache et categories
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks))
+  }, [tasks])
+
+  useEffect(() => {
+    localStorage.setItem("categories", JSON.stringify(categories))
+  }, [categories])
+
+  // ajouter, supprimer, terminer tache
   const addTask = (newTask) => {
     setTasks([...tasks, newTask])
   }
@@ -17,12 +39,12 @@ export const TaskProvider = ({ children }) => {
   const toggleComplete = (id) => {
     setTasks(
       tasks.map((task) => {
-        // console.log(`Tache terminee ${task.id} -- ${task.name}`)
         return task.id === id ? { ...task, isComplete: !task.isComplete } : task
       })
     )
   }
 
+  // creer categorie
   const addCategory = (newCat) => {
     if (newCat.trim() !== "" && !categories.includes(newCat)) {
       setCategories([...categories, newCat])
