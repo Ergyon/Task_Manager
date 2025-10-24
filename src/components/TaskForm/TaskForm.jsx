@@ -1,5 +1,7 @@
+import { CircleEllipsis, CirclePlus, PanelBottomClose } from "lucide-react"
 import { useState } from "react"
 import { useTasks } from "../../contexts/TaskContext"
+import "./TaskForm.css"
 
 const TaskForm = () => {
   const [taskName, setTaskname] = useState("")
@@ -59,20 +61,25 @@ const TaskForm = () => {
       <input
         type="text"
         placeholder="Nouvelle tâche"
+        className="taskform__input"
         value={taskName}
         onChange={(e) => setTaskname(e.target.value)}
       />
       <button
-        className="taskform-optionsBtn"
+        className="taskform__btn taskform__optionsBtn"
         type="button"
         onClick={toggleOptions}
       >
-        {showOptions ? "Masquer" : "Détails"}
+        {showOptions ? (
+          <PanelBottomClose size={18} />
+        ) : (
+          <CircleEllipsis size={18} />
+        )}
       </button>
 
       {/* Options avancees */}
       {showOptions && (
-        <div className="taskform-options">
+        <div className="taskform__options">
           {/* categorie */}
           <div className="option-wrapper">
             <label>Catégorie</label>
@@ -81,7 +88,9 @@ const TaskForm = () => {
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
               >
-                <option value="">...</option>
+                <option value="" disabled selected>
+                  ...
+                </option>
                 {categories.map((cat, index) => (
                   <option key={index} value={cat}>
                     {cat}
@@ -91,7 +100,7 @@ const TaskForm = () => {
             )}
             <input
               type="text"
-              placeholder="Nouvelle catégorie"
+              placeholder="Créer catégorie"
               value={newCat}
               onChange={(e) => setNewcat(e.target.value)}
             />
@@ -128,21 +137,22 @@ const TaskForm = () => {
                 />
               </label>
             </div>
-          </div>
-          {/* deadline */}
-          <div className="option-wrapper">
-            <label>Deadline :</label>
-            <input
-              type="date"
-              value={deadline}
-              onChange={(e) => setDeadline(e.target.value)}
-            />
+            {/* deadline */}
+            <div className="option-wrapper">
+              <label>Deadline</label>
+              <input
+                className="input-deadline"
+                type="date"
+                value={deadline}
+                onChange={(e) => setDeadline(e.target.value)}
+              />
+            </div>
           </div>
         </div>
       )}
 
-      <button className="taskform-addBtn" type="submit">
-        Ajouter
+      <button className="taskform__btn taskform__addBtn" type="submit">
+        <CirclePlus size={18} />
       </button>
     </form>
   )
