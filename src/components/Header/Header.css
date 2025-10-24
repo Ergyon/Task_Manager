@@ -1,33 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Jersey+20&family=Jost:ital,wght@0,100..900;1,100..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Pixelify+Sans:wght@400..700&family=Playwrite+US+Modern:wght@100..400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jersey+20&family=Jost:ital,wght@0,100..900;1,100..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Pixelify+Sans:wght@400..700&family=Playwrite+US+Modern:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 /* Styles de base */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 1rem 5rem;
+  margin-bottom: 2.5rem;
 }
-
-.header__title {
-  font-size: 1.5rem;
-  font-weight: bold;
+header .header__title {
+  font-family: "Merriweather";
+  font-size: 3.3rem;
+  font-weight: 400;
+  margin: 0;
 }
-
-.header__nav {
+header .header__nav {
   display: flex;
-  gap: 1rem;
+  gap: 5rem;
+  font-family: "Poppins";
+  margin-top: 4.5rem;
+  padding-bottom: 0.5rem;
+}
+header .header__nav a {
+  font-size: 1.3rem;
+  font-weight: 400;
+  text-decoration: none;
+  box-shadow: rgb(204, 219, 232) 2px 2px 3px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+  padding: 0px 25px;
+  border-radius: 15px;
+  transition: 0.2s ease-in-out;
+}
+header .header__switchBtn {
+  font-family: "Jost";
+  font-weight: 300;
+  border: none;
+  border-radius: 10px;
+  padding-inline: 8px;
+  font-size: 1rem;
+  margin-right: 2.5rem;
+  transition: 0.2s ease;
 }
 
 /* Styles LIGHT */
 header.light {
-  background-color: white;
-  color: black;
+  background-color: rgb(248, 248, 248);
+  color: #1a1a1a;
 }
 
 header.light .header__nav a {
-  color: #333;
+  color: #1a1a1a;
+}
+
+header.light .header__nav a:hover {
+  box-shadow: rgba(17, 17, 19, 0.1) -1px 2px 5px;
+}
+
+header.light .header__nav a:focus {
+  box-shadow: rgba(17, 17, 19, 0.1) -1px 2px 5px;
+  background-color: rgb(64.25, 64.25, 64.25);
+  color: rgb(248, 248, 248);
 }
 
 header.light .header__switchBtn {
-  background-color: #333;
+  background-color: rgb(51.5, 51.5, 51.5);
+  color: white;
+}
+
+header.light .header__switchBtn:hover {
+  background-color: rgb(89.75, 89.75, 89.75);
   color: white;
 }
 
@@ -39,9 +85,27 @@ header.dark {
 
 header.dark .header__nav a {
   color: #e0e0e0;
+  box-shadow: rgb(144, 147, 150) 1px 2px 2px 0px inset, rgba(2, 2, 2, 0.5) -2px -2px 2px 1px inset;
+}
+
+header.dark .header__nav a:hover {
+  box-shadow: rgba(197, 197, 199, 0.61) -1px 2px 2px;
+}
+
+header.dark .header__nav a:focus {
+  box-shadow: rgba(197, 197, 199, 0.61) -1px 2px 2px;
+  background-color: rgb(248, 248, 248);
+  color: #1a1a1a;
 }
 
 header.dark .header__switchBtn {
-  background-color: #f0f0f0;
+  background-color: rgb(222.5, 222.5, 222.5);
   color: #1a1a1a;
-}/*# sourceMappingURL=Header.css.map */
+}
+
+header.dark .header__switchBtn:hover {
+  background-color: rgb(133.25, 133.25, 133.25);
+  color: white;
+}
+
+/*# sourceMappingURL=Header.css.map */
