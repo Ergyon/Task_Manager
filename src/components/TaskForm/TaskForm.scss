@@ -35,9 +35,9 @@
         @include alignCenter;
         border-radius: 10px;
         text-align: center;
-        height: 2rem;
-        width: 2rem;
-        color: white;
+        height: 1.8rem;
+        width: 1.8rem;
+        color: $grey;
         background-color: $lightGrey;
         cursor: pointer;
         transition: 0.2s;
@@ -227,7 +227,8 @@ input[type="date"] {
     }
 
     .taskform__btn {
-        color: $mainColorDark;
+        background-color: $mainColorDark;
+        color: $lightGrey;
     }
 
     .taskform__optionsBtn:hover {

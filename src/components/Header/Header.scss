@@ -3,7 +3,7 @@
 /* Styles de base */
 header {
   @include flexCenterBetween;
-  padding: 1rem 5rem;
+  padding: 1rem 6rem;
   margin-bottom: 2.5rem;
 
 .header__title {
@@ -18,7 +18,7 @@ header {
   @include navContainerLight;
   gap: 4rem;
   margin-top: 4.5rem;
-  margin-right: 5.2rem;
+  margin-right: 8rem;
 }
 
 .header__nav a {
@@ -30,14 +30,11 @@ header {
 }
 
 .header__switchBtn {
-  font-family: $fontGlobal;
-  font-weight: 300;
-  border: none;
-  border-radius: 10px;
-  padding-inline: 8px;
-  font-size: 1rem;
-  margin-right: 2.5rem;
+  border-radius: 50%; 
+  @include alignCenter;
+  margin-right: 6.5rem;
   transition: 0.2s ease;
+  cursor: pointer;
 }
 }
 

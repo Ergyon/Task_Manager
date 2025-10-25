@@ -80,9 +80,9 @@ body.dark {
   align-items: center;
   border-radius: 10px;
   text-align: center;
-  height: 2rem;
-  width: 2rem;
-  color: white;
+  height: 1.8rem;
+  width: 1.8rem;
+  color: rgba(80, 79, 79, 0.87);
   background-color: rgba(218, 216, 216, 0.932);
   cursor: pointer;
   transition: 0.2s;
@@ -251,7 +251,8 @@ input[type=date]::-moz-calendar-picker-indicator:hover {
   outline: none;
 }
 .dark .taskform__btn {
-  color: #1a1a1a;
+  background-color: #1a1a1a;
+  color: rgba(218, 216, 216, 0.932);
 }
 .dark .taskform__optionsBtn:hover {
   background-color: #1a1a1a;

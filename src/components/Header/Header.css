@@ -1,6 +1,28 @@
 @import url("https://fonts.googleapis.com/css2?family=Jersey+20&family=Jost:ital,wght@0,100..900;1,100..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Pixelify+Sans:wght@400..700&family=Playwrite+US+Modern:wght@100..400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Jersey+20&family=Jost:ital,wght@0,100..900;1,100..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Pixelify+Sans:wght@400..700&family=Playwrite+US+Modern:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap");
+@keyframes taskComplete {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  20% {
+    opacity: 1;
+    transform: translateX(20px);
+  }
+  30% {
+    opacity: 0.9;
+    transform: translateX(25px);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateX(70px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(250px);
+  }
+}
 body {
   margin: 0;
   padding: 0;
@@ -24,7 +46,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 5rem;
+  padding: 1rem 6rem;
   margin-bottom: 2.5rem;
 }
 header .header__title {
@@ -44,7 +66,7 @@ header .header__nav {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
   gap: 4rem;
   margin-top: 4.5rem;
-  margin-right: 5.2rem;
+  margin-right: 8rem;
 }
 header .header__nav a {
   font-size: 1.3rem;
@@ -54,14 +76,12 @@ header .header__nav a {
   border-radius: 20px;
 }
 header .header__switchBtn {
-  font-family: "Jost";
-  font-weight: 300;
-  border: none;
-  border-radius: 10px;
-  padding-inline: 8px;
-  font-size: 1rem;
-  margin-right: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  margin-right: 6.5rem;
   transition: 0.2s ease;
+  cursor: pointer;
 }
 
 /* Styles LIGHT */
