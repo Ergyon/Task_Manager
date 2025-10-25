@@ -4,9 +4,9 @@ import { useEffect } from "react"
 import Header from "./components/Header/Header.jsx"
 import { TaskProvider } from "./contexts/TaskContext.jsx"
 import { ThemeProvider, useTheme } from "./contexts/ThemeContext"
-import Agenda from "./pages/Agenda.jsx"
-import HomePage from "./pages/HomePage.jsx"
-import Stats from "./pages/Stats.jsx"
+import Agenda from "./pages/Agenda/Agenda.jsx"
+import HomePage from "./pages/Home/HomePage.jsx"
+import Stats from "./pages/Stats/Stats.jsx"
 
 function App() {
   return (

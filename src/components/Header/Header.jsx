@@ -1,3 +1,4 @@
+import { Lightbulb } from "lucide-react"
 import { Link } from "react-router-dom"
 import { useTheme } from "../../contexts/ThemeContext"
 import "./Header.css"
@@ -14,7 +15,7 @@ const Header = () => {
         <Link to="/stats">Statistiques</Link>
       </nav>
       <button className="header__switchBtn" onClick={toggleTheme}>
-        Changer de thème
+        <Lightbulb size={18} />
       </button>
     </header>
   )

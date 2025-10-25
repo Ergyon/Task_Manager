@@ -37,6 +37,7 @@ $shadowInsetLight2: inset 0 2px 6px rgba(0, 0, 0, 0.158);
 $shadowLight: 0 4px 12px rgba(0, 0, 0, 0.12);
 $shadowDark: 0 2px 3px rgba(134, 132, 132, 0.658);
 $shadowBoxModal:  1px 2px 2px 2px rgba(128, 126, 126, 0.658);
+$shadowMenu:  0 2px 4px rgba(0, 0, 0, 0.281);
 
 $shadowInsetDark: rgb(0, 0, 0) 2px 2px 3px 0px inset, rgba(61, 58, 58, 0.5) -3px -3px 6px 1px inset;
 
@@ -56,7 +57,6 @@ $shadowInsetDark: rgb(0, 0, 0) 2px 2px 3px 0px inset, rgba(61, 58, 58, 0.5) -3px
     flex-direction: column;
     justify-content: space-between;
 }
-
 @mixin flexCenterBetween {
     display: flex;
     justify-content: space-between;
