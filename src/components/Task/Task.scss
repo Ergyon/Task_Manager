@@ -4,16 +4,127 @@
     box-shadow: $shadowLight;
     height: 4rem;
     border-radius: 10px;
+    font-family: $fontText;
+    transition: 0.1s;
+    &:hover {
+        // box-shadow: $shadowDark;
+        // box-shadow: 2px 2px 3px 0px #00000088;
+        box-shadow: 0 4px 5px rgb(138, 136, 136);;
+    }
+    
+    &__content {
+        flex: 1;
+        @include flexCenterBetween;
+        margin-inline: 2rem;
+    }
+
+    &__name {
+        font-size: 1.2rem;
+        font-weight: 500;
+        position: relative;
+        display: inline-block;
+        margin: 0;
+        margin-left: 1rem;
+    }
+
+    &__metadata {
+        @include alignCenter;
+        flex-wrap: wrap;
+        font-size: 14px;
+    }
+
+    &__category {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        padding: 3px 7px;
+        background-color: $taskCategory;
+        color: $grey;
+        border-radius: 12px;
+        font-weight: 500;
+        font-size: 12px;
+        margin-right: 4rem;
+
+        svg {
+        flex-shrink: 0;
+        }
+    }
+
+    // Styles des dates
+    &__date {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: #6b7280;
+    font-size: 13px;
+    
+    svg {
+        flex-shrink: 0;
+    }
+    }
+
+    // Date de creation
+    &__date--created {
+    color: $grey;
+    margin-right: 4rem;
+    }
+
+    &__date--deadline.task__date--normal {
+    color: $grey;
+    }
+
+    // deadline soon
+    &__date--deadline.task__date--soon {
+    color: $deadlineSoon;
+    font-weight: 500;
+    }
+
+    // deadline today
+    &__date--deadline.task__date--today {
+    color: $deadlineToday;
+    font-weight: 500;
+    }
+
+    // deadline overdue
+    &__date--deadline.task__date--overdue {
+    color: $deadlineOverdue;
+    font-weight: 600;
+    text-decoration: line-through;
+    }
+
+    // badge priorite
+    &__priority-badge {
+        position: absolute;
+        top: -10px;
+        left: -25px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        border: 2px solid white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.015);
+        &.priority-high {
+            background-color: $prioHigh; 
+        }
+        
+        &.priority-medium {
+            background-color: $prioMediun; 
+        }
+        
+        &.priority-low {
+            background-color: $prioLow; 
+        }
+    }
 
     &__btn {
         border: none;
         width: 3rem;
+        background-color: darken($lightGrey, 10%);
+        color: $mainColorLight;
         cursor: pointer;
 
         &--delete {
             border-top-left-radius: 10px;
             border-bottom-left-radius: 10px;
-            background-color: darken($lightGrey, 20%);
             &:hover {
                 background-color: $ctaDelete;
             }
@@ -22,10 +133,64 @@
         &--complete {
             border-top-right-radius: 10px;
             border-bottom-right-radius: 10px;
-            background-color: darken($lightGrey, 20%);
             &:hover {
                 background-color: $ctaComplete;
             }
         }
+    }
+}
+
+.task--completing {
+  animation: taskComplete 0.2s ease-in forwards;
+}
+
+// Dark
+body.dark {
+    .task {
+        background-color: $mainColorDark;
+    }
+
+    .task__name {
+        color: #e5e7eb;
+    }
+
+    .task__category {
+        background-color: $taskCategoryDark;
+        color: #ede9fe;
+    }
+
+    .task__btn {
+        background-color: $grey;
+        color: $lightGrey;
+    }
+
+    .task__btn--delete:hover {
+        background-color: $ctaDeleteDark;
+        color: $mainColorLight;
+    }
+
+    .task__btn--complete:hover {
+        background-color: $ctaCompleteDark;
+        color: $mainColorLight;
+    }
+
+    .task__priority-badge {
+        border: none;
+    }    
+
+    .task__date {
+        color: $lightGrey;
+    }
+
+    .task__date--deadline.task__date--soon {
+        color: lighten($deadlineSoon, 10%);
+    }
+
+    .task__date--deadline.task__date--today {
+        color: lighten($deadlineToday, 25%);
+    }
+
+    .task__date--deadline.task__date--overdue {
+        color: $deadlineOverdue;
     }
 }
