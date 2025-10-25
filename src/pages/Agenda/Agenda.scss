@@ -1,0 +1,78 @@
+@use '../../index.scss' as*;
+
+.main-container {
+    background-color: $mainColorLight;
+    border-radius: 10px;
+    margin-inline: 5rem;
+    min-height: calc(100vh - 220px); 
+    box-shadow: $shadowInsetLight2;
+}
+
+.calendar-header {
+    flex: 1;
+    background-color: $grey;
+    color: $mainColorLight;
+    height: 70px;
+    text-align: center;
+    @include alignCenter;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.calendar-header h2 {
+    font-family: $fontGlobal;
+    font-weight: 600;
+    font-size: 2rem;
+    margin: auto;
+}
+
+.resume {
+    max-width: 500px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 1rem;
+    box-shadow: $shadowMenu;
+    margin-left: auto;
+    margin-right: 6px;
+    
+  
+  &__header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid $grey;
+    
+    h3 {
+        margin: 0;
+        margin-right: auto;
+        font-size: 1.1rem;
+        font-family: $fontTitle;
+        font-weight: 300;
+    }
+  }
+  
+  &__close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: $ctaDeleteDark;
+    transition: all 0.2s ease;
+    
+    &:hover {
+      transform: scale(1.4);
+    }
+  }
+
+  &__day {
+    text-align: center;
+    font-family: $fontHead;
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+}
+
+
+
+// Dark
+body.dark .main-container {
+    background-color: $mainColorDark;
+}
