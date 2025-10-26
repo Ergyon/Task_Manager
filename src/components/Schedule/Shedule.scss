@@ -1,70 +1,173 @@
-@use '../../index.scss' as*;
+@use "../../index.scss" as *;
 
 .calendar {
-  width: 100%;
-  
-  &__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 24px;
-    padding-bottom: 16px;
-    border-bottom: 2px solid #e5e7eb;
-  }
-  
-  &__title {
-    margin: 0;
-    font-size: 24px;
-    font-weight: 600;
-    color: #1f2937;
-    text-transform: capitalize;
-  }
-  
-  &__navBtn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border: none;
-    background-color: #f3f4f6;
-    border-radius: 8px;
-    cursor: pointer;
-    color: #374151;
-    transition: all 0.2s ease;
-    
-    &:hover {
-      background-color: #e5e7eb;
-      transform: scale(1.05);
+    width: 100%;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 24px;
+        padding-block: 10px;
+        border-bottom: 2px solid #e5e7eb;
+        background-color: darken($lightGrey, 5%);
+        color: $mainColorDark;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom: 7px double $grey;
     }
-    
-    &:active {
-      transform: scale(0.95);
+
+    &__navBtn {
+        @include alignCenter;
+        border: none;
+        background: none;
+        cursor: pointer;
+        transition: 0.2s ease;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        margin-inline: 10px;
+        &:hover {
+            background-color: $mainColorLight;
+        }
+
+        &:active {
+            transform: scale(0.95);
+        }
     }
-  }
-  
-  &__body {
-    margin-top: 20px;
-  }
+
+    &__month {
+        text-transform: capitalize;
+        font-family: $fontGlobal;
+        font-weight: 500;
+        font-size: 2rem;
+        margin: auto;
+    }
+
+    &__year {
+        font-size: 14px;
+        font-family: $fontText;
+        font-weight: 300;
+        background-color: $mainColorDark;
+        opacity: 0.8;
+        color: $mainColorLight;
+        border-radius: 6px;
+        padding: 1px 4px;
+    }
+
+    &__body {
+        margin-block: 20px;
+        margin-inline: 1rem;
+        border-radius: 6px;
+        padding: 10px;
+    }
+
+    &__weekdays {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 8px;
+        margin-bottom: 8px;
+        font-family: $fontGlobal;
+    }
+
+    &__weekday {
+        text-align: center;
+        font-weight: 600;
+        font-size: 14px;
+        color: #6b7280;
+        padding: 12px 0;
+    }
+
+    &__days {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 6px;
+    }
+
+    &__day {
+        aspect-ratio: 1.2;
+        border: 2px solid #e5e7eb;
+        border-radius: 8px;
+        padding: 8px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        font-family: $fontText;
+
+        &:hover {
+            border-color: $mainColorDark;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+        }
+
+        &--other-month {
+            opacity: 0.3;
+
+            &:hover {
+                opacity: 0.5;
+            }
+        }
+
+        &--today {
+            background-color: $lightGrey;
+            box-shadow: $shadowInsetLight2;
+            
+            .calendar__day-number {
+                font-weight: 700;
+                font-size: 22px;
+            }
+        }
+    }
+
+    &__day-number {
+        font-size: 18px;
+        font-weight: 300;
+        color: $mainColorDark;
+    }
 }
 
-// Mode sombre
+// Dark
 body.dark .calendar,
 .dark .calendar {
-  &__header {
-    border-bottom-color: #374151;
-  }
-  
-  &__title {
-    color: #e5e7eb;
-  }
-  
-  &__nav-btn {
-    background-color: #374151;
-    color: #e5e7eb;
-    
-    &:hover {
-      background-color: #4b5563;
+    &__header {
+        background-color: lighten($grey, 10%);
+        color: $mainColorLight;
+        border-bottom: 7px double $lightGrey;
     }
-  }
+
+    &__navBtn {
+        color: #e5e7eb;
+
+        &:hover {
+            background-color: $mainColorDark;
+        }
+
+    }
+
+    &__body {
+        background-color: lighten($mainColorDark, 5%);
+    }
+
+    &__weekday {
+        color: $lightGrey;
+    }
+
+    &__day {
+        border-color: $grey;
+        background-color: $mainColorDark;
+
+        &:hover {
+            border-color: $mainColorLight;
+        }
+
+        &--today {
+            background-color: lighten($grey, 10%);
+        }
+    }
+
+    &__day-number {
+        color: $mainColorLight;
+    }
 }

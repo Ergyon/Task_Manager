@@ -49,54 +49,147 @@ body.dark {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 24px;
-  padding-bottom: 16px;
+  padding-block: 10px;
   border-bottom: 2px solid #e5e7eb;
-}
-.calendar__title {
-  margin: 0;
-  font-size: 24px;
-  font-weight: 600;
-  color: #1f2937;
-  text-transform: capitalize;
+  background-color: rgba(205.5855263158, 202.9144736842, 202.9144736842, 0.932);
+  color: #1a1a1a;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom: 7px double rgba(80, 79, 79, 0.87);
 }
 .calendar__navBtn {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
   border: none;
-  background-color: #f3f4f6;
-  border-radius: 8px;
+  background: none;
   cursor: pointer;
-  color: #374151;
-  transition: all 0.2s ease;
+  transition: 0.2s ease;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin-inline: 10px;
 }
 .calendar__navBtn:hover {
-  background-color: #e5e7eb;
-  transform: scale(1.05);
+  background-color: rgb(248, 248, 248);
 }
 .calendar__navBtn:active {
   transform: scale(0.95);
 }
+.calendar__month {
+  text-transform: capitalize;
+  font-family: "Jost";
+  font-weight: 500;
+  font-size: 2rem;
+  margin: auto;
+}
+.calendar__year {
+  font-size: 14px;
+  font-family: "Inter";
+  font-weight: 300;
+  background-color: #1a1a1a;
+  opacity: 0.8;
+  color: rgb(248, 248, 248);
+  border-radius: 6px;
+  padding: 1px 4px;
+}
 .calendar__body {
-  margin-top: 20px;
+  margin-block: 20px;
+  margin-inline: 1rem;
+  border-radius: 6px;
+  padding: 10px;
+}
+.calendar__weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  margin-bottom: 8px;
+  font-family: "Jost";
+}
+.calendar__weekday {
+  text-align: center;
+  font-weight: 600;
+  font-size: 14px;
+  color: #6b7280;
+  padding: 12px 0;
+}
+.calendar__days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+.calendar__day {
+  aspect-ratio: 1.2;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  font-family: "Inter";
+}
+.calendar__day:hover {
+  border-color: #1a1a1a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+.calendar__day--other-month {
+  opacity: 0.3;
+}
+.calendar__day--other-month:hover {
+  opacity: 0.5;
+}
+.calendar__day--today {
+  background-color: rgba(218, 216, 216, 0.932);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.158);
+}
+.calendar__day--today .calendar__day-number {
+  font-weight: 700;
+  font-size: 22px;
+}
+.calendar__day-number {
+  font-size: 18px;
+  font-weight: 300;
+  color: #1a1a1a;
 }
 
 body.dark .calendar__header,
 .dark .calendar__header {
-  border-bottom-color: #374151;
+  background-color: rgba(105.6603773585, 104.3396226415, 104.3396226415, 0.87);
+  color: rgb(248, 248, 248);
+  border-bottom: 7px double rgba(218, 216, 216, 0.932);
 }
-body.dark .calendar__title,
-.dark .calendar__title {
+body.dark .calendar__navBtn,
+.dark .calendar__navBtn {
   color: #e5e7eb;
 }
-body.dark .calendar__nav-btn,
-.dark .calendar__nav-btn {
-  background-color: #374151;
-  color: #e5e7eb;
+body.dark .calendar__navBtn:hover,
+.dark .calendar__navBtn:hover {
+  background-color: #1a1a1a;
 }
-body.dark .calendar__nav-btn:hover,
-.dark .calendar__nav-btn:hover {
-  background-color: #4b5563;
+body.dark .calendar__body,
+.dark .calendar__body {
+  background-color: rgb(38.75, 38.75, 38.75);
+}
+body.dark .calendar__weekday,
+.dark .calendar__weekday {
+  color: rgba(218, 216, 216, 0.932);
+}
+body.dark .calendar__day,
+.dark .calendar__day {
+  border-color: rgba(80, 79, 79, 0.87);
+  background-color: #1a1a1a;
+}
+body.dark .calendar__day:hover,
+.dark .calendar__day:hover {
+  border-color: rgb(248, 248, 248);
+}
+body.dark .calendar__day--today,
+.dark .calendar__day--today {
+  background-color: rgba(105.6603773585, 104.3396226415, 104.3396226415, 0.87);
+}
+body.dark .calendar__day-number,
+.dark .calendar__day-number {
+  color: rgb(248, 248, 248);
 }/*# sourceMappingURL=Shedule.css.map */
