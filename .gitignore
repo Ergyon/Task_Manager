@@ -26,3 +26,4 @@ eslint.config.js
 *.sln
 *.sw?
 
+vite.config.js
