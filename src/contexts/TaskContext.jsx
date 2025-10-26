@@ -27,7 +27,7 @@ export const TaskProvider = ({ children }) => {
     localStorage.setItem("categories", JSON.stringify(categories))
   }, [categories])
 
-  // ajouter, supprimer, terminer tache
+  // ajouter, supprimer tache
   const addTask = (newTask) => {
     setTasks([...tasks, newTask])
   }
@@ -36,10 +36,27 @@ export const TaskProvider = ({ children }) => {
     setTasks(tasks.filter((task) => task.id !== id))
   }
 
+  // terminer tache
   const toggleComplete = (id) => {
     setTasks(
       tasks.map((task) => {
-        return task.id === id ? { ...task, isComplete: !task.isComplete } : task
+        if (task.id === id) {
+          if (!task.isComplete) {
+            return {
+              ...task,
+              isComplete: true,
+              completedDate: new Date().toISOString()
+            }
+          } else {
+            // de-terminer une tache
+            const { completedDate, ...withoutCompleteDate } = task
+            return {
+              ...withoutCompleteDate,
+              isComplete: false
+            }
+          }
+        }
+        return task
       })
     )
   }

@@ -59,6 +59,7 @@ const Task = ({ task }) => {
       >
         <Trash2 size={25} />
       </button>
+
       <div className="task__content">
         <h4 className="task__name">
           {task.name}

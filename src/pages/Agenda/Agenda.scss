@@ -3,26 +3,12 @@
 .main-container {
     background-color: $mainColorLight;
     border-radius: 10px;
-    margin-inline: 5rem;
-    min-height: calc(100vh - 220px); 
-    box-shadow: $shadowInsetLight2;
-}
-
-.calendar-header {
-    flex: 1;
-    background-color: $grey;
-    color: $mainColorLight;
-    height: 70px;
-    text-align: center;
-    @include alignCenter;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
-.calendar-header h2 {
-    font-family: $fontGlobal;
-    font-weight: 600;
-    font-size: 2rem;
     margin: auto;
+    width: 80%;
+    display: flex;
+    height: auto;
+    box-shadow: $shadowInsetLight2;
+    margin-bottom: 2rem;
 }
 
 .resume {
@@ -33,7 +19,7 @@
     box-shadow: $shadowMenu;
     margin-left: auto;
     margin-right: 6px;
-    
+    background: $whiteGreyGradient;
   
   &__header {
     display: flex;
@@ -73,6 +59,11 @@
 
 
 // Dark
-body.dark .main-container {
-    background-color: $mainColorDark;
+body.dark {
+    .main-container {
+      background-color: $mainColorDark;
+    }
+    .resume {
+      background: $blackgreyGradient;
+    }
 }

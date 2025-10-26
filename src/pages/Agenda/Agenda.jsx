@@ -1,12 +1,12 @@
-import { Minus } from "lucide-react"
 import { useState } from "react"
+import DayDetails from "../../components/DayDetails/DayDetails"
 import Schedule from "../../components/Schedule/Shedule"
 import "./Agenda.css"
 
 const Agenda = () => {
   const [currentDate, setCurrentdate] = useState(new Date())
 
-  const [selectedDay, setSelectedDay] = useState("28 / 10 / 2025")
+  const [selectedDay, setSelectedDay] = useState(null)
 
   return (
     <div className="main-container">
@@ -18,16 +18,10 @@ const Agenda = () => {
 
       {selectedDay && (
         <div className="resume">
-          <div className="resume__header">
-            <h3>Détails du jour</h3>
-            <button
-              className="resume__close"
-              onClick={() => setSelectedDay(null)}
-            >
-              <Minus size={20} />
-            </button>
-          </div>
-          <h4 className="resume__day">{selectedDay}</h4>
+          <DayDetails
+            selectedDate={selectedDay}
+            onClose={() => setSelectedDay(null)}
+          />
         </div>
       )}
     </div>
