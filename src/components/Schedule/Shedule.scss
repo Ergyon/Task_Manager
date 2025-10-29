@@ -40,12 +40,12 @@
         text-transform: capitalize;
         font-family: $fontGlobal;
         font-weight: 500;
-        font-size: 2rem;
+        font-size: 2.5rem;
         margin: auto;
     }
 
     &__year {
-        font-size: 14px;
+        font-size: 16px;
         font-family: $fontText;
         font-weight: 300;
         background-color: $mainColorDark;
@@ -56,8 +56,7 @@
     }
 
     &__body {
-        margin-block: 20px;
-        margin-inline: 1rem;
+        margin: 20 4;
         border-radius: 6px;
         padding: 10px;
     }
@@ -68,6 +67,7 @@
         gap: 8px;
         margin-bottom: 8px;
         font-family: $fontGlobal;
+        font-size: 16px;
     }
 
     &__weekday {
@@ -85,7 +85,7 @@
     }
 
     &__day {
-        aspect-ratio: 1.2;
+        aspect-ratio: 1;
         border: 2px solid #e5e7eb;
         border-radius: 8px;
         padding: 8px;
@@ -113,7 +113,7 @@
         &--today {
             background-color: $lightGrey;
             box-shadow: $shadowInsetLight2;
-            
+
             .calendar__day-number {
                 font-weight: 700;
                 font-size: 22px;
@@ -125,6 +125,32 @@
         font-size: 18px;
         font-weight: 300;
         color: $mainColorDark;
+        // margin-bottom: 10px;
+    }
+
+    &__day-meta {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-block: 15px;
+    }
+
+    &__day-badge {
+        height: 15px;
+        width: 15px;
+        border-radius: 50%;
+        // background-color: blue;
+        box-shadow: $shadowInsetLight2;
+
+        &--high {
+            background-color: $prioHigh;
+        }
+        &--medium {
+            background-color: $prioMediun;
+        }
+        &--low {
+            background-color: $prioLow;
+        }
     }
 }
 
@@ -143,7 +169,6 @@ body.dark .calendar,
         &:hover {
             background-color: $mainColorDark;
         }
-
     }
 
     &__body {
