@@ -67,25 +67,20 @@
         gap: 8px;
         margin-bottom: 8px;
         font-family: $fontGlobal;
-        font-size: 16px;
-    }
-
-    &__weekday {
-        text-align: center;
-        font-weight: 600;
-        font-size: 14px;
-        color: #6b7280;
-        padding: 12px 0;
+        font-size: 18px;
+        font-weight: 500;
     }
 
     &__days {
         display: grid;
         grid-template-columns: repeat(7, 1fr);
-        gap: 6px;
+        align-items: center;
+        gap: 4px;
+        margin: auto;
     }
 
     &__day {
-        aspect-ratio: 1;
+        aspect-ratio: 1.2;
         border: 2px solid #e5e7eb;
         border-radius: 8px;
         padding: 8px;
@@ -94,12 +89,17 @@
         background-color: white;
         display: flex;
         flex-direction: column;
-        font-family: $fontText;
 
         &:hover {
             border-color: $mainColorDark;
-            transform: translateY(-2px);
+            transform: translateY(-4px);
             box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+        }
+
+        &--selected {
+            background-color: $mainColorLight;
+            box-shadow: $shadowInsetLight;
+            
         }
 
         &--other-month {
@@ -122,24 +122,23 @@
     }
 
     &__day-number {
+        font-family: $fontText;
         font-size: 18px;
         font-weight: 300;
         color: $mainColorDark;
-        // margin-bottom: 10px;
     }
 
     &__day-meta {
         display: flex;
         flex-direction: column;
-        gap: 8px;
-        margin-block: 15px;
+        gap: 6px;
+        margin-block: 8px;
     }
 
     &__day-badge {
-        height: 15px;
-        width: 15px;
+        height: 10px;
+        width: 10px;
         border-radius: 50%;
-        // background-color: blue;
         box-shadow: $shadowInsetLight2;
 
         &--high {

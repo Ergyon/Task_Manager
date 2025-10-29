@@ -1,4 +1,4 @@
-@use '../index.scss' as*;
+@use '../../index.scss' as*;
 
 .home-container {
     @include flexCenterColumn;
@@ -10,7 +10,7 @@
     font-weight: 600;
     font-size: 2.5rem;
     margin: 0;
-    margin-bottom: 2rem;
+    margin-bottom: 0.5rem;
 }
 
 .tasklist-container {

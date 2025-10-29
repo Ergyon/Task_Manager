@@ -1,8 +1,9 @@
 @use '../../index.scss' as*;
 
 .day-details {
-  width: 450px;
-  // flex: 1;  
+  min-width: 300px;
+  // max-width: 450px;
+
   &__empty {
     text-align: center;
     margin-top: 5rem;

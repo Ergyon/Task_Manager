@@ -1,6 +1,6 @@
 import { Minus, Tag } from "lucide-react"
 import { useTasks } from "../../contexts/TaskContext.jsx"
-import { formatSelectedDate, getTasksDay } from "../../utils/taskUtils.js"
+import { formatSelectedDate, getTasksDay } from "../../utils/utils.js"
 import "./DayDetails.css"
 
 const DayDetails = ({ selectedDate, onClose }) => {

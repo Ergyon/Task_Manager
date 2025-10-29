@@ -4,7 +4,7 @@
     @include flexCenterBetween;
     min-width: 50%;
     font-family: $fontText;
-    margin-bottom: 1.5rem;
+    margin-block: 1rem;
 
     // input nouvelle tache
     &__input {

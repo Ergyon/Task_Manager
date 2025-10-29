@@ -1,6 +1,28 @@
 @import url("https://fonts.googleapis.com/css2?family=Jersey+20&family=Jost:ital,wght@0,100..900;1,100..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Pixelify+Sans:wght@400..700&family=Playwrite+US+Modern:wght@100..400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Jersey+20&family=Jost:ital,wght@0,100..900;1,100..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Pixelify+Sans:wght@400..700&family=Playwrite+US+Modern:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap");
+@keyframes taskComplete {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  20% {
+    opacity: 1;
+    transform: translateX(20px);
+  }
+  30% {
+    opacity: 0.9;
+    transform: translateX(25px);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateX(70px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(250px);
+  }
+}
 body {
   margin: 0;
   padding: 0;
@@ -8,6 +30,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+}
+
+li {
+  list-style: none;
 }
 
 body.light {
@@ -31,7 +57,7 @@ body.dark {
   font-weight: 600;
   font-size: 2.5rem;
   margin: 0;
-  margin-bottom: 2rem;
+  margin-bottom: 0.5rem;
 }
 
 .tasklist-container {

@@ -32,6 +32,10 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+li {
+  list-style: none;
+}
+
 body.light {
   background-color: white;
 }
@@ -42,7 +46,7 @@ body.dark {
 }
 
 .day-details {
-  width: 450px;
+  min-width: 300px;
 }
 .day-details__empty {
   text-align: center;

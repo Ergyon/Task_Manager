@@ -32,6 +32,10 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+li {
+  list-style: none;
+}
+
 body.light {
   background-color: white;
 }
@@ -79,7 +83,7 @@ body.dark {
   text-transform: capitalize;
   font-family: "Jost";
   font-weight: 500;
-  font-size: 2.2rem;
+  font-size: 2.5rem;
   margin: auto;
 }
 .calendar__year {
@@ -103,22 +107,18 @@ body.dark {
   gap: 8px;
   margin-bottom: 8px;
   font-family: "Jost";
-  font-size: 16px;
-}
-.calendar__weekday {
-  text-align: center;
-  font-weight: 600;
-  font-size: 14px;
-  color: #6b7280;
-  padding: 12px 0;
+  font-size: 18px;
+  font-weight: 500;
 }
 .calendar__days {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 6px;
+  align-items: center;
+  gap: 4px;
+  margin: auto;
 }
 .calendar__day {
-  aspect-ratio: 1;
+  aspect-ratio: 1.2;
   border: 2px solid #e5e7eb;
   border-radius: 8px;
   padding: 8px;
@@ -127,12 +127,15 @@ body.dark {
   background-color: white;
   display: flex;
   flex-direction: column;
-  font-family: "Inter";
 }
 .calendar__day:hover {
   border-color: #1a1a1a;
-  transform: translateY(-2px);
+  transform: translateY(-4px);
   box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+.calendar__day--selected {
+  background-color: rgb(248, 248, 248);
+  box-shadow: rgb(204, 219, 232) 2px 2px 3px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
 }
 .calendar__day--other-month {
   opacity: 0.3;
@@ -149,6 +152,7 @@ body.dark {
   font-size: 22px;
 }
 .calendar__day-number {
+  font-family: "Inter";
   font-size: 18px;
   font-weight: 300;
   color: #1a1a1a;
@@ -156,12 +160,12 @@ body.dark {
 .calendar__day-meta {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  margin-block: 15px;
+  gap: 6px;
+  margin-block: 8px;
 }
 .calendar__day-badge {
-  height: 15px;
-  width: 15px;
+  height: 10px;
+  width: 10px;
   border-radius: 50%;
   box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.158);
 }

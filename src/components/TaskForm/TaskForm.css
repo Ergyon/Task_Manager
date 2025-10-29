@@ -32,6 +32,10 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+li {
+  list-style: none;
+}
+
 body.light {
   background-color: white;
 }
@@ -47,7 +51,7 @@ body.dark {
   align-items: center;
   min-width: 50%;
   font-family: "Inter";
-  margin-bottom: 1.5rem;
+  margin-block: 1rem;
 }
 .taskform__input {
   -webkit-appearance: none;

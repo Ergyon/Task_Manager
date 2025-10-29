@@ -32,6 +32,10 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+li {
+  list-style: none;
+}
+
 body.light {
   background-color: white;
 }
@@ -46,9 +50,8 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 6rem;
-  margin-bottom: 2.5rem;
-  width: 100vw;
+  margin-bottom: 1.5rem;
+  padding: 2% 5%;
 }
 header .header__title {
   font-family: "Merriweather";
@@ -57,17 +60,16 @@ header .header__title {
   margin: 0;
 }
 header .header__nav {
-  display: flex;
-  align-items: center;
   font-family: "Poppins";
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-  gap: 4rem;
-  margin-top: 4.5rem;
-  margin-right: 8rem;
+  display: flex;
+  gap: 2rem;
+  margin-right: 6.5rem;
+  margin-top: 3.5rem;
 }
 header .header__nav a {
   font-size: 1.3rem;
@@ -78,8 +80,6 @@ header .header__nav a {
 }
 header .header__switchBtn {
   border-radius: 50%;
-  display: flex;
-  align-items: center;
   margin-right: 6.5rem;
   transition: 0.2s ease;
   cursor: pointer;

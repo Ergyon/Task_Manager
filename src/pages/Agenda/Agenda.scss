@@ -6,7 +6,6 @@
   &__content {
     font-family: $fontHead;
     text-align: center;
-    padding: 20% 0;
 
     h2 {
       font-size: 4rem;
@@ -14,7 +13,7 @@
     }
 
     h3 {
-      font-size: 1,2rem;
+      font-size: 1.2rem;
       font-weight: 400;
     }
   }
@@ -24,15 +23,13 @@
     background-color: $mainColorLight;
     border-radius: 10px;
     margin: auto;
-    width: 75%;
-    display: flex;
-    height: auto;
+    width: 60%;
     box-shadow: $shadowInsetLight2;
     margin-bottom: 2rem;
+    display: flex;
 }
 
 .resume {
-    // max-width: 300px;
     flex: 1;
     background-color: white;
     border-radius: 5px;

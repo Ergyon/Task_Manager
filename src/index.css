@@ -32,6 +32,10 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+li {
+  list-style: none;
+}
+
 body.light {
   background-color: white;
 }

@@ -21,6 +21,7 @@ const Agenda = () => {
             currentDate={currentDate}
             setCurrentdate={setCurrentDate}
             onDayClick={setSelectedDay}
+            selectedDay={selectedDay}
           />
 
           {selectedDay && (

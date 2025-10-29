@@ -1,9 +1,9 @@
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { useTasks } from "../../contexts/TaskContext.jsx"
-import { getTasksDay } from "../../utils/taskUtils.js"
+import { getTasksDay, isSameDay } from "../../utils/utils.js"
 import "./Shedule.css"
 
-const Schedule = ({ currentDate, setCurrentdate, onDayClick }) => {
+const Schedule = ({ currentDate, setCurrentdate, onDayClick, selectedDay }) => {
   const { tasks } = useTasks()
 
   const goPreviousMonth = () => {
@@ -120,12 +120,22 @@ const Schedule = ({ currentDate, setCurrentdate, onDayClick }) => {
           {calendarDays.map((dayInfo, index) => {
             const dayTasks = getTasksDay(tasks, dayInfo.date)
 
+            // verifie si c'est le jour selectionne
+            const isSelected =
+              selectedDay &&
+              isSameDay(
+                dayInfo.date,
+                new Date(selectedDay.split("/").reverse().join("-"))
+              )
+
             return (
               <div
                 key={index}
                 className={`calendar__day ${
                   !dayInfo.isCurrentMonth ? "calendar__day--other-month" : ""
-                } ${dayInfo.isToday ? "calendar__day--today" : ""}`}
+                } ${dayInfo.isToday ? "calendar__day--today" : ""} ${
+                  isSelected ? "calendar__day--selected" : ""
+                }`}
                 onClick={() =>
                   onDayClick(dayInfo.date.toLocaleDateString("fr-FR"))
                 }
@@ -134,6 +144,7 @@ const Schedule = ({ currentDate, setCurrentdate, onDayClick }) => {
 
                 {dayTasks.length > 0 && (
                   <div className="calendar__day-meta">
+                    {/* infos taches sur jour du calendrier */}
                     {dayTasks
                       .filter((task) => task.priority)
                       .slice(0, 3)
