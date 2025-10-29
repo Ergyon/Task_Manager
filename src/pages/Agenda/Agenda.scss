@@ -1,10 +1,30 @@
 @use '../../index.scss' as*;
 
+.agenda-locked {
+  margin: auto;
+
+  &__content {
+    font-family: $fontHead;
+    text-align: center;
+    padding: 20% 0;
+
+    h2 {
+      font-size: 4rem;
+      font-weight: 600;
+    }
+
+    h3 {
+      font-size: 1,2rem;
+      font-weight: 400;
+    }
+  }
+}
+
 .main-container {
     background-color: $mainColorLight;
     border-radius: 10px;
     margin: auto;
-    width: 80%;
+    width: 75%;
     display: flex;
     height: auto;
     box-shadow: $shadowInsetLight2;
@@ -12,7 +32,8 @@
 }
 
 .resume {
-    max-width: 500px;
+    // max-width: 300px;
+    flex: 1;
     background-color: white;
     border-radius: 5px;
     padding: 1rem;
