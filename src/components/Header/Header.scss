@@ -5,6 +5,7 @@ header {
   @include flexCenterBetween;
   padding: 1rem 6rem;
   margin-bottom: 2.5rem;
+  width: 100vw;
 
 .header__title {
   font-family: $fontTitle;

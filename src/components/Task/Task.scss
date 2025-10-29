@@ -1,17 +1,18 @@
-@use '../../index.scss' as*;
+@use "../../index.scss" as *;
 
 .task {
     box-shadow: $shadowLight;
     height: 4rem;
-    border-radius: 10px;
+    border-radius: 12px;
     font-family: $fontText;
-    transition: 0.1s;
+    transition: 0.3s;
+    border: 1px solid $lightGrey;
     &:hover {
         // box-shadow: $shadowDark;
         // box-shadow: 2px 2px 3px 0px #00000088;
-        box-shadow: 0 4px 5px rgb(138, 136, 136);;
+        box-shadow: 0 4px 5px rgb(138, 136, 136);
     }
-    
+
     &__content {
         flex: 1;
         @include flexCenterBetween;
@@ -46,73 +47,60 @@
         margin-right: 4rem;
 
         svg {
-        flex-shrink: 0;
+            flex-shrink: 0;
         }
     }
 
     // Styles des dates
     &__date {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    color: #6b7280;
-    font-size: 13px;
-    
-    svg {
-        flex-shrink: 0;
-    }
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        color: #6b7280;
+        font-size: 13px;
+
+        svg {
+            flex-shrink: 0;
+        }
     }
 
     // Date de creation
     &__date--created {
-    color: $grey;
-    margin-right: 4rem;
+        color: $grey;
+        margin-right: 4rem;
     }
 
     &__date--deadline.task__date--normal {
-    color: $grey;
+        color: $grey;
     }
 
     // deadline soon
     &__date--deadline.task__date--soon {
-    color: $deadlineSoon;
-    font-weight: 500;
+        color: $deadlineSoon;
+        font-weight: 500;
     }
 
     // deadline today
     &__date--deadline.task__date--today {
-    color: $deadlineToday;
-    font-weight: 500;
+        color: $deadlineToday;
+        font-weight: 500;
     }
 
     // deadline overdue
     &__date--deadline.task__date--overdue {
-    color: $deadlineOverdue;
-    font-weight: 600;
-    text-decoration: line-through;
+        color: $deadlineOverdue;
+        font-weight: 600;
+        text-decoration: line-through;
     }
 
-    // badge priorite
-    &__priority-badge {
-        position: absolute;
-        top: -10px;
-        left: -25px;
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        border: 2px solid white;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.015);
-        &.priority-high {
-            background-color: $prioHigh; 
-        }
-        
-        &.priority-medium {
-            background-color: $prioMediun; 
-        }
-        
-        &.priority-low {
-            background-color: $prioLow; 
-        }
+    &__priority-high {
+        border-color: $prioHigh;
+    }
+    &__priority-medium {
+        border-color: $prioMediun;
+    }
+    &__priority-low {
+        border-color: $prioLow;
     }
 
     &__btn {
@@ -141,7 +129,7 @@
 }
 
 .task--completing {
-  animation: taskComplete 0.2s ease-in forwards;
+    animation: taskComplete 0.2s ease-in forwards;
 }
 
 // Dark
@@ -176,7 +164,7 @@ body.dark {
 
     .task__priority-badge {
         border: none;
-    }    
+    }
 
     .task__date {
         color: $lightGrey;

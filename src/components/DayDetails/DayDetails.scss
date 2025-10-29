@@ -1,8 +1,17 @@
 @use '../../index.scss' as*;
 
 .day-details {
-  width: 480px;
-  
+  width: 450px;
+  // flex: 1;  
+  &__empty {
+    text-align: center;
+    margin-top: 5rem;
+    font-family: $fontText;
+    font-size: 1.5rem;
+    font-weight: 200;
+    margin-inline: 5rem;
+  }
+
   &__header {
     display: flex;
     justify-content: space-between;
@@ -76,6 +85,18 @@
     &:hover {
       border-color: darken($lightGrey, 20%);
       box-shadow: $shadowLight;
+    }
+
+    &--priority-high {
+      border-color: $prioHigh;
+    }
+    
+    &--priority-medium {
+      border-color: $prioMediun;
+    }
+    
+    &--priority-low {
+      border-color: $prioLow;
     }
     
     // Tâche terminée
@@ -156,7 +177,7 @@
   
   &__task-status {
     display: inline-block;
-    padding: 4px 4px;
+    padding: 2px 4px;
     background-color: lighten($ctaComplete, 10%);
     color: $mainColorLight;
     border-radius: 8px;

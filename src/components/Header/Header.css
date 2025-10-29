@@ -48,6 +48,7 @@ header {
   align-items: center;
   padding: 1rem 6rem;
   margin-bottom: 2.5rem;
+  width: 100vw;
 }
 header .header__title {
   font-family: "Merriweather";
