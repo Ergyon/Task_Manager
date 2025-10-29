@@ -1,0 +1,48 @@
+@use '../../index.scss' as *;
+
+.task-nav {
+    width: 100%;
+    margin: auto;
+    padding: 0;
+    
+    &__list {
+        // @include alignCenter;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        padding: 14px 0;
+    }
+    
+    &__link {
+        font-family: $fontHead;
+        background: none;
+        border: none;
+        font-size: 1rem;
+        color: $grey;
+        cursor: pointer;
+        transition: 0.2s;
+        &:hover {
+            color: $mainColorDark;
+            transform: scale(1.05);
+        }
+        &--active {
+            color: $mainColorDark;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+    }
+}
+
+body.dark {
+    .task-nav__link {
+        color: $lightGrey;
+        &:hover {
+            color: $mainColorLight;
+        }
+        &--active {
+            color: $mainColorLight;
+            text-decoration-color: $mainColorLight;
+        }
+    }
+}
