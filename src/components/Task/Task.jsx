@@ -52,7 +52,11 @@ const Task = ({ task }) => {
   }
 
   return (
-    <div className={`task ${isCompleting ? "task--completing" : ""}`}>
+    <div
+      className={`task ${isCompleting ? "task--completing" : ""}
+    ${task.priority ? `task__priority-${task.priority}` : ""}
+    `}
+    >
       <button
         className="task__btn task__btn--delete"
         onClick={() => deleteTask(task.id)}
@@ -61,14 +65,7 @@ const Task = ({ task }) => {
       </button>
 
       <div className="task__content">
-        <h4 className="task__name">
-          {task.name}
-          {task.priority && (
-            <span
-              className={`task__priority-badge priority-${task.priority}`}
-            ></span>
-          )}
-        </h4>
+        <h4 className="task__name">{task.name}</h4>
 
         {/* metadonnees */}
         <div className="task__metadata">
