@@ -1,7 +1,11 @@
 import { ChevronLeft, ChevronRight } from "lucide-react"
+import { useTasks } from "../../contexts/TaskContext.jsx"
+import { getTasksDay } from "../../utils/taskUtils.js"
 import "./Shedule.css"
 
 const Schedule = ({ currentDate, setCurrentdate, onDayClick }) => {
+  const { tasks } = useTasks()
+
   const goPreviousMonth = () => {
     const newDate = new Date(currentDate)
     newDate.setMonth(newDate.getMonth() - 1)
@@ -113,19 +117,38 @@ const Schedule = ({ currentDate, setCurrentdate, onDayClick }) => {
 
         {/* grille des jours */}
         <div className="calendar__days">
-          {calendarDays.map((dayInfo, index) => (
-            <div
-              key={index}
-              className={`calendar__day ${
-                !dayInfo.isCurrentMonth ? "calendar__day--other-month" : ""
-              } ${dayInfo.isToday ? "calendar__day--today" : ""}`}
-              onClick={() =>
-                onDayClick(dayInfo.date.toLocaleDateString("fr-FR"))
-              }
-            >
-              <span className="calendar__day-number">{dayInfo.day}</span>
-            </div>
-          ))}
+          {calendarDays.map((dayInfo, index) => {
+            const dayTasks = getTasksDay(tasks, dayInfo.date)
+
+            return (
+              <div
+                key={index}
+                className={`calendar__day ${
+                  !dayInfo.isCurrentMonth ? "calendar__day--other-month" : ""
+                } ${dayInfo.isToday ? "calendar__day--today" : ""}`}
+                onClick={() =>
+                  onDayClick(dayInfo.date.toLocaleDateString("fr-FR"))
+                }
+              >
+                <span className="calendar__day-number">{dayInfo.day}</span>
+
+                {dayTasks.length > 0 && (
+                  <div className="calendar__day-meta">
+                    {dayTasks
+                      .filter((task) => task.priority)
+                      .slice(0, 3)
+                      .map((task, taskIndex) => (
+                        <span
+                          key={taskIndex}
+                          className={`calendar__day-badge calendar__day-badge--${task.priority}`}
+                          title={task.name}
+                        ></span>
+                      ))}
+                  </div>
+                )}
+              </div>
+            )
+          })}
         </div>
       </div>
     </div>
