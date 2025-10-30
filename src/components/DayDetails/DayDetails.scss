@@ -134,6 +134,11 @@
     @include alignCenter;
   }
   
+  &__initDate {
+    font-size: 12px;
+    margin-right: auto;
+    opacity: 0.8;
+  }
   
   &__task-category {
     background-color: $taskCategory;

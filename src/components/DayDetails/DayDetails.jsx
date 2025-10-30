@@ -24,34 +24,34 @@ const DayDetails = ({ selectedDate, onClose }) => {
           <h4 className="day-details__summary__title">Vos objectifs</h4>
         )}
         <div className="day-details__tasks">
+          {/* si aucune taches */}
           {dayTasks.length === 0 ? (
             <div className="day-details__empty">
               Vous n'avez rien de prévu pour le moment
             </div>
           ) : (
+            // liste des tache du jour selectionne
             dayTasks.map((task) => (
               <div
                 key={task.id}
                 className={`day-details__task ${
                   task.isComplete ? "day-details__task--completed" : ""
                 } ${
-                  task.priority
-                    ? `day-details__task--priority-${task.priority}`
-                    : ""
-                }`}
-              >
+                  task.priority ? `day-details__task--priority-${task.priority}` : ""
+                }`}>
                 <div className="day-details__task-header">
                   <span className="day-details__task-name">
                     {task.name}
                     {task.priority && (
-                      <span
-                        className={`priority-badge priority-${task.priority}`}
-                      ></span>
+                      <span className={`priority-badge priority-${task.priority}`}></span>
                     )}
                   </span>
                 </div>
 
                 <div className="day-details__task-data">
+                  <span className="day-details__initDate">
+                    {`${new Date(task.initDate).toLocaleDateString("fr-FR")}`}
+                  </span>
                   {task.category && (
                     <span className="day-details__task-category">
                       <Tag size={12} />
@@ -67,9 +67,7 @@ const DayDetails = ({ selectedDate, onClose }) => {
                   )}
 
                   {!task.deadline && (
-                    <span className="day-details__task-nodeadline">
-                      Sans échéance
-                    </span>
+                    <span className="day-details__task-nodeadline">Sans échéance</span>
                   )}
 
                   {task.isComplete && (

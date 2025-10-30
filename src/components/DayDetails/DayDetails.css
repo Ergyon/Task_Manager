@@ -158,6 +158,11 @@ body.dark {
   display: flex;
   align-items: center;
 }
+.day-details__initDate {
+  font-size: 12px;
+  margin-right: auto;
+  opacity: 0.8;
+}
 .day-details__task-category {
   background-color: rgba(160, 212, 233, 0.4196078431);
   padding: 1px 10px;
