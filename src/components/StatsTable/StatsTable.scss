@@ -1,0 +1,163 @@
+@use '../../index.scss' as *;
+
+.stats-table {
+  width: 100%;
+  margin: 1rem 0 0.5rem 0;
+  box-shadow: $shadowInsetLight;
+  border-radius: 8px;
+  padding-block: 12px;
+  background-color: $mainColorLight;
+  
+  &__title {
+    margin: 8px 0 16px 0px;
+    font-size: 1.5rem;
+    font-weight: 500;
+    font-family: $fontHead;
+    text-align: center;
+  }
+  
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+    margin: 0px 12px;
+  }
+}
+
+.stats-card {
+  display: flex;
+  padding: 10px;
+  background-color: white;
+  border: 1px solid $lightGrey;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  &:hover {
+    box-shadow: $shadowInsetLight;
+    border-color: lighten($grey, 10%);
+    transform: translateY(-1px);
+  }  
+  &--active {
+    svg {
+      color: #9e68d1ff;
+    }
+  }
+  &--completed {
+    svg {
+      color: #31c090f1;
+    }
+  }
+  &--early {
+    svg {
+      color: rgb(60, 149, 179);
+    }
+    }
+    &--ontime {
+      svg {
+        color: rgb(129, 99, 15);
+      }
+    }
+    &--late {
+      svg {
+        color: rgba(199, 36, 36, 0.952)
+      }
+    }
+  
+  &__content {
+    flex: 1;
+    @include flexCenterColumn;
+    width: 100%;
+  }
+  
+  &__label {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 500;
+    color: $mainColorDark;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-family: $fontText;
+    margin-bottom: 1rem;
+    
+  }
+  
+  &__value {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+    font-family: $fontText;
+  }
+  
+  &__percentage {
+    margin: 10px 0 4px 10px;
+    font-size: 14px;
+    font-weight: 500;
+    color: $grey;
+    font-family: $fontHead;
+  }
+}
+
+// Mode sombre
+body.dark .stats-table,
+.dark 
+.stats-table {
+  background-color: $mainColorDark;
+  box-shadow: $shadowInsetDark;
+
+  &__title {
+    color: $mainColorLight;
+  }
+}
+
+body.dark .stats-card,
+.dark .stats-card {
+  background-color: lighten($mainColorDark, 3%);
+  border-color: $mainColorDark;
+  
+  &:hover {
+    border-color: #4b5563;
+  }
+    
+  &--active {
+    svg {
+      color: #be2ee2;
+    }
+  }
+  
+  &--completed {
+    svg{
+      color: #1eb18a;
+    }
+  }
+  
+&--early {
+  svg {
+    color: #4c6ee0;
+  }
+}
+
+&--ontime {
+  svg {
+      color: rgb(165, 127, 22);
+    }
+  }
+  
+  &--late {
+    svg {
+      color: #aa2424;
+    }
+  }
+  
+  
+  &__value {
+    color: $mainColorLight;
+  }
+
+  &__label {
+    color: $lightGrey;
+  }
+
+  &__percentage {
+    color: $lightGrey;
+  }
+}

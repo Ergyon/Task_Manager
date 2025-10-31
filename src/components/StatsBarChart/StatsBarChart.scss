@@ -1,0 +1,52 @@
+@use '../../index.scss' as*;
+
+.stats-bar-chart {
+  width: 100%;
+  padding-bottom: 8px;
+  background-color: $mainColorLight;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  box-shadow: $shadowInsetLight;
+
+  &__legend {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin: 12px 0 4px 0;
+    padding-top: 12px;
+    font-family: $fontGlobal;
+  }
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.legend-color {
+  width: 14px;
+  height: 14px;
+  border-radius: 2px;
+}
+
+.legend-label {
+  font-size: 14px;
+  color: $grey;
+  font-weight: 400;
+}
+
+
+// Dark
+body.dark .stats-bar-chart,
+.dark 
+.stats-bar-chart {
+    background-color: $mainColorDark;
+    box-shadow: $shadowInsetDark;
+}
+body.dark .legend-label,
+.dark .legend-label {
+  color: $lightGrey;
+}

@@ -1,0 +1,55 @@
+@use '../../index.scss' as*;
+
+.stats-pie {
+    width: 100%;
+    @include alignCenter;
+    margin: 24px 0 0 0;
+
+  &__title {
+    font-size: 1.8rem;
+    font-weight: 500;
+    font-family: $fontHead;
+    margin-left: 1.5rem;
+  }
+  
+  &__empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 350px;
+    font-family: $fontHead;
+    
+    p {
+      margin: 0;
+      color: #6b7280;
+      font-size: 15px;
+    }
+  }
+
+  .recharts-legend-wrapper {
+    .recharts-legend-item {
+        margin-right: 18px !important;
+
+        svg {
+            border-radius: 14px;
+            height: 10px;
+            width: 14px;
+            margin-right: 6px !important;
+        }
+    }
+  }
+}
+
+// Dark
+body.dark .stats-pie,
+.dark .stats-pie {
+  background-color: #1a1a1a;
+  
+  &__title {
+    color: $mainColorLight;
+  }
+  
+  &__empty p {
+    color: #9ca3af;
+  }
+}

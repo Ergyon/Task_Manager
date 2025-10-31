@@ -1,0 +1,180 @@
+@import url("https://fonts.googleapis.com/css2?family=Jersey+20&family=Jost:ital,wght@0,100..900;1,100..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Pixelify+Sans:wght@400..700&family=Playwrite+US+Modern:wght@100..400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jersey+20&family=Jost:ital,wght@0,100..900;1,100..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Pixelify+Sans:wght@400..700&family=Playwrite+US+Modern:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap");
+@keyframes taskComplete {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  20% {
+    opacity: 1;
+    transform: translateX(20px);
+  }
+  30% {
+    opacity: 0.9;
+    transform: translateX(25px);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateX(70px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(250px);
+  }
+}
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+li {
+  list-style: none;
+}
+
+body.light {
+  background-color: white;
+}
+
+body.dark {
+  background-color: rgb(43.85, 43.85, 43.85);
+  color: rgb(248, 248, 248);
+}
+
+.stats-table {
+  width: 100%;
+  margin: 1rem 0 0.5rem 0;
+  box-shadow: rgb(204, 219, 232) 2px 2px 3px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+  border-radius: 8px;
+  padding-block: 12px;
+  background-color: rgb(248, 248, 248);
+}
+.stats-table__title {
+  margin: 8px 0 16px 0px;
+  font-size: 1.5rem;
+  font-weight: 500;
+  font-family: "Poppins";
+  text-align: center;
+}
+.stats-table__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  margin: 0px 12px;
+}
+
+.stats-card {
+  display: flex;
+  padding: 10px;
+  background-color: white;
+  border: 1px solid rgba(218, 216, 216, 0.932);
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.stats-card:hover {
+  box-shadow: rgb(204, 219, 232) 2px 2px 3px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+  border-color: rgba(105.6603773585, 104.3396226415, 104.3396226415, 0.87);
+  transform: translateY(-1px);
+}
+.stats-card--active svg {
+  color: #9e68d1;
+}
+.stats-card--completed svg {
+  color: rgba(49, 192, 144, 0.9450980392);
+}
+.stats-card--early svg {
+  color: rgb(60, 149, 179);
+}
+.stats-card--ontime svg {
+  color: rgb(129, 99, 15);
+}
+.stats-card--late svg {
+  color: rgba(199, 36, 36, 0.952);
+}
+.stats-card__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.stats-card__label {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 500;
+  color: #1a1a1a;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-family: "Inter";
+  margin-bottom: 1rem;
+}
+.stats-card__value {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  font-family: "Inter";
+}
+.stats-card__percentage {
+  margin: 10px 0 4px 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(80, 79, 79, 0.87);
+  font-family: "Poppins";
+}
+
+body.dark .stats-table,
+.dark .stats-table {
+  background-color: #1a1a1a;
+  box-shadow: rgb(0, 0, 0) 2px 2px 3px 0px inset, rgba(61, 58, 58, 0.5) -3px -3px 6px 1px inset;
+}
+body.dark .stats-table__title,
+.dark .stats-table__title {
+  color: rgb(248, 248, 248);
+}
+
+body.dark .stats-card,
+.dark .stats-card {
+  background-color: rgb(33.65, 33.65, 33.65);
+  border-color: #1a1a1a;
+}
+body.dark .stats-card:hover,
+.dark .stats-card:hover {
+  border-color: #4b5563;
+}
+body.dark .stats-card--active svg,
+.dark .stats-card--active svg {
+  color: #be2ee2;
+}
+body.dark .stats-card--completed svg,
+.dark .stats-card--completed svg {
+  color: #1eb18a;
+}
+body.dark .stats-card--early svg,
+.dark .stats-card--early svg {
+  color: #4c6ee0;
+}
+body.dark .stats-card--ontime svg,
+.dark .stats-card--ontime svg {
+  color: rgb(165, 127, 22);
+}
+body.dark .stats-card--late svg,
+.dark .stats-card--late svg {
+  color: #aa2424;
+}
+body.dark .stats-card__value,
+.dark .stats-card__value {
+  color: rgb(248, 248, 248);
+}
+body.dark .stats-card__label,
+.dark .stats-card__label {
+  color: rgba(218, 216, 216, 0.932);
+}
+body.dark .stats-card__percentage,
+.dark .stats-card__percentage {
+  color: rgba(218, 216, 216, 0.932);
+}/*# sourceMappingURL=StatsTable.css.map */
