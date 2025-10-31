@@ -1,10 +1,12 @@
 import "./TaskNav.css"
 
-const TaskNav = ({ activeFilter, onFilterChange }) => {
-  const filters = ["Toutes", "Aujourd'hui", "Cette semaine", "Ce mois-ci"]
+const TaskNav = ({ activeFilter, onFilterChange, showYearFilter }) => {
+  const filters = showYearFilter
+    ? ["Aujourd'hui", "Cette semaine", "Ce mois-ci", "Cette année", "Toutes"]
+    : ["Aujourd'hui", "Cette semaine", "Ce mois-ci", "Toutes"]
 
   const handleClick = (filter) => {
-    if (activeFilter === "Toutes") {
+    if (filter === "Toutes") {
       onFilterChange(null)
     } else if (activeFilter === filter) {
       onFilterChange(null)
@@ -20,10 +22,11 @@ const TaskNav = ({ activeFilter, onFilterChange }) => {
           <li key={filter}>
             <button
               className={`task-nav__link ${
-                activeFilter === filter ? "task-nav__link--active" : ""
+                (filter === "Toutes" && !activeFilter) || activeFilter === filter
+                  ? "task-nav__link--active"
+                  : ""
               }`}
-              onClick={() => handleClick(filter)}
-            >
+              onClick={() => handleClick(filter)}>
               {filter}
             </button>
           </li>
