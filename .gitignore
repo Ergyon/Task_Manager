@@ -27,3 +27,4 @@ eslint.config.js
 *.sw?
 
 vite.config.js
+src/utils/taskUtils.js
