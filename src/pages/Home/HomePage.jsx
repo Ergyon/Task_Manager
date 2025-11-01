@@ -17,9 +17,7 @@ const HomePage = () => {
       <div className="tasklist-container">
         {filteredTasks.length === 0 ? (
           <span className="tasklist-empty">
-            {activeFilter
-              ? `Aucune tâche pour ${activeFilter}`
-              : "Aucune tâche en cours"}
+            {activeFilter ? `Aucune tâche pour ${activeFilter}` : "Aucune tâche en cours"}
           </span>
         ) : (
           filteredTasks.map((task) => <Task key={task.id} task={task} />)
