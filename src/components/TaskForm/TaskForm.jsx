@@ -1,5 +1,5 @@
 import { CircleEllipsis, CirclePlus, PanelBottomClose } from "lucide-react"
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { useTasks } from "../../contexts/TaskContext"
 import "./TaskForm.css"
 
@@ -12,6 +12,22 @@ const TaskForm = () => {
   const [deadline, setDeadline] = useState("")
 
   const { categories, addTask, addCategory } = useTasks()
+
+  // cliquer en dehors des options ferme les options
+  const formRef = useRef(null)
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (formRef.current && !formRef.current.contains(e.target) && showOptions)
+        setShowoptions(false)
+    }
+
+    document.addEventListener("mousedown", handleClickOutside)
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
+  }, [showOptions])
 
   // creer un id
   const generateId = () => {
@@ -57,7 +73,7 @@ const TaskForm = () => {
   }
 
   return (
-    <form className="taskform" onSubmit={handleSubmit}>
+    <form className="taskform" onSubmit={handleSubmit} ref={formRef}>
       <input
         type="text"
         placeholder="Nouvelle tâche"
@@ -68,13 +84,8 @@ const TaskForm = () => {
       <button
         className="taskform__btn taskform__optionsBtn"
         type="button"
-        onClick={toggleOptions}
-      >
-        {showOptions ? (
-          <PanelBottomClose size={18} />
-        ) : (
-          <CircleEllipsis size={18} />
-        )}
+        onClick={toggleOptions}>
+        {showOptions ? <PanelBottomClose size={18} /> : <CircleEllipsis size={18} />}
       </button>
 
       {/* Options avancees */}
@@ -84,10 +95,7 @@ const TaskForm = () => {
           <div className="option-wrapper">
             <label className="option-label">Catégorie</label>
             {categories.length > 0 && (
-              <select
-                value={category}
-                onChange={(e) => setCategory(e.target.value)}
-              >
+              <select value={category} onChange={(e) => setCategory(e.target.value)}>
                 <option value="" disabled selected>
                   ...
                 </option>
