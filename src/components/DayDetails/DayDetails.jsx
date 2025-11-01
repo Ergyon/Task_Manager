@@ -1,14 +1,17 @@
-import { Minus, Tag } from "lucide-react"
+import { Check, Minus } from "lucide-react"
 import { useTasks } from "../../contexts/TaskContext.jsx"
 import { formatSelectedDate, getTasksDay } from "../../utils/utils.js"
 import "./DayDetails.css"
 
 const DayDetails = ({ selectedDate, onClose }) => {
-  const { tasks } = useTasks()
+  const { tasks, toggleComplete } = useTasks()
 
   const selectedDateObj = new Date(selectedDate.split("/").reverse().join("-"))
-
   const dayTasks = getTasksDay(tasks, selectedDateObj)
+
+  const handleToggleConplete = (taskId) => {
+    toggleComplete(taskId)
+  }
 
   return (
     <div className="day-details">
@@ -39,44 +42,34 @@ const DayDetails = ({ selectedDate, onClose }) => {
                 } ${
                   task.priority ? `day-details__task--priority-${task.priority}` : ""
                 }`}>
-                <div className="day-details__task-header">
-                  <span className="day-details__task-name">
-                    {task.name}
-                    {task.priority && (
-                      <span className={`priority-badge priority-${task.priority}`}></span>
-                    )}
-                  </span>
-                </div>
+                <span className="day-details__task-name">{task.name}</span>
 
                 <div className="day-details__task-data">
                   <span className="day-details__initDate">
                     {`${new Date(task.initDate).toLocaleDateString("fr-FR")}`}
                   </span>
+
                   {task.category && (
                     <span className="day-details__task-category">
-                      <Tag size={12} />
+                      {/* <Tag size={12} /> */}
                       {task.category}
                     </span>
                   )}
 
                   {task.deadline && (
                     <span className="day-details__task-deadline">
-                      {/* <Calendar size={12} /> */}
                       {new Date(task.deadline).toLocaleDateString("fr-FR")}
                     </span>
                   )}
-
-                  {!task.deadline && (
-                    <span className="day-details__task-nodeadline">Sans échéance</span>
-                  )}
-
-                  {task.isComplete && (
-                    <span className="day-details__task-status">
-                      {/* <Check size={15} /> */}
-                      <span>Terminée</span>
-                    </span>
-                  )}
                 </div>
+                <span
+                  className={`day-details__task-toggle ${
+                    task.isComplete ? "day-details__task-toggle--completed" : ""
+                  }`}
+                  onClick={() => handleToggleConplete(task.id)}
+                  aria-label="Terminer la tâche">
+                  <Check size={15} strokeWidth={2} />
+                </span>
               </div>
             ))
           )}
