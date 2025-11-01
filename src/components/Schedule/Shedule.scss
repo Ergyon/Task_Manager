@@ -10,7 +10,7 @@
         margin-bottom: 24px;
         padding-block: 10px;
         border-bottom: 2px solid #e5e7eb;
-        background-color: darken($lightGrey, 5%);
+        background-color: darken($lightGrey, 0%);
         color: $mainColorDark;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
@@ -136,8 +136,8 @@
     }
 
     &__day-badge {
-        height: 10px;
-        width: 10px;
+        height: 8px;
+        width: 8px;
         border-radius: 50%;
         box-shadow: $shadowInsetLight2;
 

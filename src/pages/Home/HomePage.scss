@@ -20,6 +20,12 @@
     gap: 1rem;
 }
 
+.tasklist-empty {
+    font-size: 1.2rem;
+    margin-top: 5rem;
+    font-family: $fontText;
+}
+
 .task {
     display: flex;
     justify-content: space-between;

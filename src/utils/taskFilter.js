@@ -2,7 +2,7 @@ import { useState } from "react";
 import { isThisMonth, isThisWeek, isToday } from "./utils";
 
 export const useTasksFilter = (tasks) => {
-    const [activeFilter, setActiveFilter] = useState(null)
+    const [activeFilter, setActiveFilter] = useState("Aujourd'hui")
 
     const getFilteredTasks = () => {
         const activeTasks = tasks.filter((task) => !task.isComplete)

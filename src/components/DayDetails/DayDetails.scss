@@ -1,7 +1,7 @@
 @use '../../index.scss' as*;
 
 .day-details {
-  min-width: 300px;
+  min-width: 400px;
   // max-width: 450px;
 
   &__empty {
@@ -19,21 +19,21 @@
     align-items: flex-start;
     margin-bottom: 20px;
     padding-bottom: 16px;
-    border-bottom: 3px solid #e5e7eb;
+    border-bottom: 2px solid $lightGrey;
   }
   
   &__title {
     margin: 0;
     font-family: $fontGlobal;
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 300;
     color: $mainColorDark;
   }
   
   &__date {
-    margin: 30px 0px 25px 0px;
+    margin: 30px 0px 20px 0px;
     font-size: 1.6rem;
-    font-family: $fontTitle;
+    font-family: $fontHead;
     color: $mainColorDark;
     text-align: center;
     text-transform: capitalize;
@@ -77,9 +77,10 @@
   }
   
   &__task {
-    padding: 16px 10px;
+    display: flex;
+    padding: 12px 6px;
     background-color: white;
-    border: 2px solid darken($lightGrey, 10%);
+    box-shadow: $shadowDark;
     border-radius: 10px;
     transition: all 0.2s ease;
     
@@ -89,20 +90,22 @@
     }
 
     &--priority-high {
-      border-color: $prioHigh;
+      border: 1px solid $prioHigh ;
     }
-    
     &--priority-medium {
-      border-color: $prioMediun;
+      border: 1px solid $prioMediun;
     }
-    
     &--priority-low {
-      border-color: $prioLow;
+      border: 1px solid $prioLow ;
     }
-    
-    // Tâche terminée
+
     &--completed {
       opacity: 0.6;
+      border: none;
+      box-shadow: none;
+      &:hover {
+        box-shadow: none;
+      }
       
       .day-details__task-name {
         text-decoration: line-through;
@@ -111,116 +114,81 @@
     }
   }
   
-  &__task-header {
-    margin-bottom: 10px;
-  }
-  
   &__task-name {
     margin: 0;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
     color: $mainColorDark;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    position: relative;
   }
   
   &__task-data {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    margin-left: auto;
     gap: 8px;
-    margin-top: 8px;
-    @include alignCenter;
   }
   
   &__initDate {
     font-size: 12px;
-    margin-right: auto;
     opacity: 0.8;
+    padding: 3px 8px;
+    border-radius: 4px;
+    box-shadow: $shadowInsetLight;
   }
   
   &__task-category {
     background-color: $taskCategory;
-    padding: 1px 10px;
-    border-radius: 15px;
+    text-align: center;
+    border-radius: 8px;
     color: $grey;
-    font-weight: 500;
-    gap: 4px;
+    font-weight: 300;
+    font-size: 14px;
 
-    svg {
-      flex-shrink: 0;
-    }
   }
   
   &__task-deadline {
-    background-color: $dayDetailsDeadline;
+    background-color: rgb(179, 25, 25);
     color: $mainColorLight;
-    border-radius: 6px;
+    border-radius: 4px;
     font-family: $fontText;
-    font-size: 14px;
-    font-weight: 500;
+    font-size: 12px;
+    font-weight: 300;
     @include alignCenter;
-    padding: 4px 11px;
-    height: 20px;
+    justify-content: center;
+    padding: 3px 8px;
     opacity: 0.8;
-    margin-left: auto;
-    box-shadow: $shadowBoxModal2;
+    box-shadow: $shadowInsetDark;
   }
   
-  &__task-nodeadline {
-    background-color: lighten($lightGrey, 5%);
-    color: $grey;
-    font-size: 14px;
-    @include alignCenter;
-    padding: 1px 9px;
-    border-radius: 10px;
-
-    svg {
-      flex-shrink: 0;
-    }
-  }
-  
-  &__task-status {
-    display: inline-block;
-    padding: 2px 4px;
+  &__task-toggle {
     background-color: lighten($ctaComplete, 10%);
-    color: $mainColorLight;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 8px;
     border: 1px solid $ctaComplete;
-    @include alignCenter;
-    margin-left: auto;
-    box-shadow: $shadowBoxModal2;
+    margin-left: 14px;
+    margin-top: auto;
+    height: 16px;
+    width: 18px;
+    padding: 2px;
+    cursor: pointer;
+    box-shadow: $shadowMenu;
 
-    span {
-      margin: 0 4px;
+    &:hover {
+      background-color: $ctaComplete;
     }
+    &--completed {
+      box-shadow: $shadowInsetDark;
+    }
+
+    
   }
 }
 
-// Badge de priorité (réutilisation du style de Task)
-.priority-badge {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  border: 2px solid white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-  
-  &.priority-high {
-    background-color: $prioHigh;
-  }
-  
-  &.priority-medium {
-    background-color: $prioMediun;
-  }
-  
-  &.priority-low {
-    background-color: $prioLow;
-  }
-}
-
-// Mode sombre
+// Dark
 body.dark .day-details,
 .dark .day-details {
   
@@ -238,10 +206,32 @@ body.dark .day-details,
   
   &__task {
     background-color: $grey;
-    border-color: $mainColorDark;
+    border-color: $grey;
     
     &:hover {
-      border-color: $lightGrey;
+      border-color: darken($lightGrey, 10%);
+    }
+
+    &--priority-high {
+      border-color: $prioHigh;
+    }
+    
+    &--priority-medium {
+      border-color: $prioMediun;
+    }
+    
+    &--priority-low {
+      border-color: $prioLow;
+    }
+    
+    &--completed {
+      opacity: 0.6;
+      border: none;
+      
+      .day-details__task-name {
+        text-decoration: line-through;
+        color: #9ca3af;
+      }
     }
   }
   
@@ -254,9 +244,13 @@ body.dark .day-details,
     color: $mainColorLight;
   }
   
+  &__initDate {
+    box-shadow: $shadowInsetDark;
+    background-color: $mainColorDark;
+  }
+
   &__task-deadline {
     background-color: $dayDetailsDeadline;
-    color: $mainColorLight;
     box-shadow: $shadowInsetDark;
   }
   
@@ -266,10 +260,16 @@ body.dark .day-details,
     font-weight: 300;
   }
   
-  &__task-status {
+  &__task-toggle {
     background-color: $ctaComplete;
+    box-shadow: $shadowMenu;
     color: $mainColorLight;
-    box-shadow: $shadowInsetDark;
+    &:hover {
+      background-color: lighten($ctaComplete, 10%);
+    }
+    &--completed {
+      box-shadow: $shadowInsetDark;
+    }
   }
   
   .priority-badge {
