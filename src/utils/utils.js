@@ -23,33 +23,26 @@ export const formatSelectedDate = (datestring) => {
 // obtenir les taches d'un jour 
 export const getTasksDay = (tasks, selectedDate) => {
     return tasks.filter((task) => {
-        // affiche taches terminees seulement le jour ou elles ont ete terminees
-        if (task.isComplete && task.completedDate) {
-            const completedDate = new Date (task.completedDate)
-            return isSameDay(completedDate, selectedDate)
-        }
-
-        // le jour de leur deadline
+        // avec deadline : affiche le jour de la deadline
         if (task.deadline) {
-            const taskDeadline = new Date(task.deadline)
-            return isSameDay(taskDeadline, selectedDate)
+            const taskdeadline = new Date(task.deadline)
+            return isSameDay(taskdeadline, selectedDate)
         }
 
         // sans deadline et en cours
         if (!task.deadline && !task.isComplete) {
-            const taskInitDate = new Date(task.initDate)
+            const taskInitdate = new Date(task.initDate)
             const today = new Date()
-            const isCreatedToday =  isSameDay(taskInitDate, today)
+            const isCreatedToday = isSameDay(today, taskInitdate)
 
-            // si creee aujourd'hui, affiche seulement aujourd'hui
+            // si creee aujourd'hui : affiche seulemt aujourd'hui
             if (isCreatedToday) {
-                return isSameDay(taskInitDate, selectedDate)
+                return isSameDay(taskInitdate, selectedDate)
             }
 
             // affiche tous les jours si creee avant aujourd'hui
             return true
         }
-        return false
     })
 }
 
