@@ -119,6 +119,7 @@ export const calculateStats = (tasks) => {
     }))
 
     return {
+        // donnes en nombres
         totalTasks,
         activeCount,
         completedCount,
@@ -130,6 +131,15 @@ export const calculateStats = (tasks) => {
         lateCount,
         lateRate,
         totalWithDeadline,
-        categories: categoriesArray
+        categories: categoriesArray,
+
+        taskLists: {
+            all: tasks,
+            active: activeTasks,
+            completed: completedTasks,
+            early: completedEarly,
+            ontime: completedOnTime,
+            late: completedLate
+        }
     }
 }

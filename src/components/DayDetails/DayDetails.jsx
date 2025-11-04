@@ -1,5 +1,6 @@
 import { Check, Minus } from "lucide-react"
 import { useTasks } from "../../contexts/TaskContext.jsx"
+import { sortTasks } from "../../utils/taskFilter.js"
 import { formatSelectedDate, getTasksDay } from "../../utils/utils.js"
 import "./DayDetails.css"
 
@@ -8,6 +9,8 @@ const DayDetails = ({ selectedDate, onClose }) => {
 
   const selectedDateObj = new Date(selectedDate.split("/").reverse().join("-"))
   const dayTasks = getTasksDay(tasks, selectedDateObj)
+
+  const sortedDayTasks = sortTasks(dayTasks, true)
 
   const handleToggleConplete = (taskId) => {
     toggleComplete(taskId)
@@ -23,18 +26,18 @@ const DayDetails = ({ selectedDate, onClose }) => {
       </div>
       <h4 className="day-details__date">{formatSelectedDate(selectedDate)}</h4>
       <div className="day-details__summary">
-        {dayTasks.length !== 0 && (
+        {sortedDayTasks.length !== 0 && (
           <h4 className="day-details__summary__title">Vos objectifs</h4>
         )}
         <div className="day-details__tasks">
           {/* si aucune taches */}
-          {dayTasks.length === 0 ? (
+          {sortedDayTasks.length === 0 ? (
             <div className="day-details__empty">
               Vous n'avez rien de prévu pour le moment
             </div>
           ) : (
             // liste des tache du jour selectionne
-            dayTasks.map((task) => (
+            sortedDayTasks.map((task) => (
               <div
                 key={task.id}
                 className={`day-details__task ${

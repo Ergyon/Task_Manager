@@ -31,12 +31,10 @@
 
 .resume {
     flex: 1;
-    background-color: white;
     border-radius: 5px;
     padding: 1rem;
     box-shadow: $shadowMenu;
-    margin-left: auto;
-    margin-right: 6px;
+    // margin-left: auto;
     background: $whiteGreyGradient;
   
   &__header {

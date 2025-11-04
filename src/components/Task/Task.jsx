@@ -3,9 +3,11 @@ import { useState } from "react"
 import { useTasks } from "../../contexts/TaskContext"
 import "./Task.css"
 
-const Task = ({ task }) => {
+const Task = ({ task, variant = "default" }) => {
   const { deleteTask, toggleComplete } = useTasks()
   const [isCompleting, setIsCompleting] = useState(false)
+
+  const isModalView = variant === "modal"
 
   // formater date
   const formatDate = (isoDate) => {
@@ -55,14 +57,14 @@ const Task = ({ task }) => {
     <div
       className={`task ${isCompleting ? "task--completing" : ""}
     ${task.priority ? `task__priority-${task.priority}` : ""}
-    `}
-    >
-      <button
-        className="task__btn task__btn--delete"
-        onClick={() => deleteTask(task.id)}
-      >
-        <Trash2 size={25} />
-      </button>
+    ${isModalView ? "task--modal" : ""} `}>
+      {!isModalView && (
+        <button
+          className="task__btn task__btn--delete"
+          onClick={() => deleteTask(task.id)}>
+          <Trash2 size={25} />
+        </button>
+      )}
 
       <div className="task__content">
         <h4 className="task__name">{task.name}</h4>
@@ -86,21 +88,21 @@ const Task = ({ task }) => {
             <span
               className={`task__date task__date--deadline task__date--${deadlineStatus(
                 task.deadline
-              )}`}
-            >
+              )}`}>
               <Calendar size={12} />
               {formatDate(task.deadline)}
             </span>
           )}
         </div>
       </div>
-      <button
-        className="task__btn task__btn--complete"
-        onClick={handleComplete}
-        disabled={isCompleting}
-      >
-        <Check size={25} />
-      </button>
+      {!isModalView && (
+        <button
+          className="task__btn task__btn--complete"
+          onClick={handleComplete}
+          disabled={isCompleting}>
+          <Check size={25} />
+        </button>
+      )}
     </div>
   )
 }

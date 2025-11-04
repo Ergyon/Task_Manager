@@ -7,6 +7,7 @@ import Agenda from "./pages/Agenda/Agenda.jsx"
 import HomePage from "./pages/Home/HomePage.jsx"
 import NotFound from "./pages/NotFound/NotFound.jsx"
 import Stats from "./pages/Stats/Stats.jsx"
+import TaskTimer from "./pages/TaskTimer/TaskTimer.jsx"
 
 function App() {
   return (
@@ -34,6 +35,7 @@ const AppContent = () => {
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/agenda" element={<Agenda />}></Route>
         <Route path="/stats" element={<Stats />}></Route>
+        <Route path="/tasktimer" element={<TaskTimer />}></Route>
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
     </div>
