@@ -52,7 +52,7 @@ body.dark {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 24px;
+  margin-bottom: 18px;
   padding-block: 10px;
   border-bottom: 2px solid #e5e7eb;
   background-color: rgba(218, 216, 216, 0.932);
@@ -181,7 +181,7 @@ body.dark {
 
 body.dark .calendar__header,
 .dark .calendar__header {
-  background-color: rgba(105.6603773585, 104.3396226415, 104.3396226415, 0.87);
+  background-color: #1a1a1a;
   color: rgb(248, 248, 248);
   border-bottom: 7px double rgba(218, 216, 216, 0.932);
 }

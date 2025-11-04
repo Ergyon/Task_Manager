@@ -32,6 +32,13 @@
     background-color: $mainColorLight;
 }
 
+.stats-empty {
+    text-align: center;
+    margin: 4rem 0;
+    font-family: $fontText;
+    font-size: 1.2rem;
+}
+
 body.dark {
     .stats-categories {
         background-color: $mainColorDark;

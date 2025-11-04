@@ -61,4 +61,88 @@ body.light {
 body.dark {
   background-color: rgb(43.85, 43.85, 43.85);
   color: rgb(248, 248, 248);
-}/*# sourceMappingURL=index.css.map */
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(71, 71, 71, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  animation: fadeIn 0.2s ease;
+}
+
+.modal {
+  background-color: rgb(248, 248, 248);
+  border-radius: 16px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.3s ease;
+  position: relative;
+  z-index: 200;
+}
+.modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px;
+  border-bottom: 1px solid #e5e7eb;
+}
+.modal__title {
+  margin: auto;
+  font-size: 22px;
+  font-weight: 600;
+  color: #1a1a1a;
+  font-family: "Poppins";
+}
+.modal__close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  color: rgba(80, 79, 79, 0.87);
+  transition: all 0.2s ease;
+}
+.modal__close:hover {
+  color: #1a1a1a;
+}
+.modal__body {
+  padding: 24px;
+  overflow-y: auto;
+  flex: 1;
+}
+.modal__tasks {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.modal__empty {
+  text-align: center;
+  font-family: "Inter";
+  padding: 30px;
+  font-size: 16px;
+}
+
+body.dark .modal-overlay {
+  background-color: rgba(32, 32, 32, 0.5);
+}
+body.dark .modal {
+  background-color: #1a1a1a;
+  border: 1px solid rgba(80, 79, 79, 0.87);
+}
+body.dark .modal__header {
+  border-bottom: 1px solid rgba(80, 79, 79, 0.87);
+}
+body.dark .modal__title {
+  color: rgb(248, 248, 248);
+}/*# sourceMappingURL=TaskModal.css.map */

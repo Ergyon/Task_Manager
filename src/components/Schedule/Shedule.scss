@@ -7,7 +7,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 24px;
+        margin-bottom: 18px;
         padding-block: 10px;
         border-bottom: 2px solid #e5e7eb;
         background-color: darken($lightGrey, 0%);
@@ -157,7 +157,9 @@
 body.dark .calendar,
 .dark .calendar {
     &__header {
-        background-color: lighten($grey, 10%);
+        // background-color: lighten($grey, 5%);
+        background-color: lighten($mainColorDark, 0%);
+        // background-color: black;
         color: $mainColorLight;
         border-bottom: 7px double $lightGrey;
     }

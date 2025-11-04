@@ -132,6 +132,27 @@
     animation: taskComplete 0.2s ease-in forwards;
 }
 
+.task--modal {
+    max-height: 2rem;
+
+    .task__name {
+        font-size: 15px;
+        font-weight: 400;
+        margin-left: 4px;
+    }
+    .task__content {
+        margin-inline: 8px;
+    }
+
+    .task__category {
+        font-size: 12px;
+    }
+
+    .task__date {
+        font-size: 12px;
+    }
+}
+
 // Dark
 body.dark {
     .task {
