@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { isThisMonth, isThisWeek, isToday } from "./utils";
 
+// trier taches par temporalite : navigation
 export const useTasksFilter = (tasks) => {
     const [activeFilter, setActiveFilter] = useState("Aujourd'hui")
 
@@ -39,4 +40,26 @@ export const useTasksFilter = (tasks) => {
         setActiveFilter,
         filteredTasks: getFilteredTasks()
     }
+}
+
+// tirer taches par importance : affichage
+export const sortTasks = (tasks, showCompleted = false) => {
+    const priorityOrder = {
+        high: 1,
+        medium: 2,
+        low: 3,
+        null: 4
+    }
+    return [...tasks].sort((a,b) => {
+        if (showCompleted) {
+            if (a.isComplete !== b.isComplete) {
+                return a.isComplete ? 1 : -1
+            }
+        }
+
+        const priorityA = priorityOrder[a.priority] || priorityOrder.null
+        const priorityB = priorityOrder[b.priority] || priorityOrder.null
+
+        return priorityA - priorityB
+    })
 }
