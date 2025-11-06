@@ -12,7 +12,6 @@ dist
 dist-ssr
 *.local
 eslint.config.js
-*.json
 *.map
 
 # Editor directories and files
