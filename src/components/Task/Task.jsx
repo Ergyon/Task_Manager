@@ -3,7 +3,7 @@ import { useState } from "react"
 import { useTasks } from "../../contexts/TaskContext"
 import "./Task.css"
 
-const Task = ({ task, variant = "default" }) => {
+const Task = ({ task, variant = "default", onTaskClick }) => {
   const { deleteTask, toggleComplete } = useTasks()
   const [isCompleting, setIsCompleting] = useState(false)
 
@@ -45,6 +45,7 @@ const Task = ({ task, variant = "default" }) => {
     return "normal"
   }
 
+  // animation terminee
   const handleComplete = () => {
     setIsCompleting(true)
     setTimeout(() => {
@@ -53,11 +54,20 @@ const Task = ({ task, variant = "default" }) => {
     }, 500)
   }
 
+  // gestion du clique sur la tache (view normale)
+  const handleTaskClick = (e) => {
+    if (e.target.closest("button")) return
+    if (!isModalView && onTaskClick) {
+      onTaskClick(task)
+    }
+  }
+
   return (
     <div
       className={`task ${isCompleting ? "task--completing" : ""}
     ${task.priority ? `task__priority-${task.priority}` : ""}
-    ${isModalView ? "task--modal" : ""} `}>
+    ${isModalView ? "task--modal" : ""} `}
+      onClick={handleTaskClick}>
       {!isModalView && (
         <button
           className="task__btn task__btn--delete"
