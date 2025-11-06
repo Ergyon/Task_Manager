@@ -3,6 +3,7 @@
 .home-container {
     @include flexCenterColumn;
     margin-inline: 20%;
+    position: relative;
 }
 
 .home-title {
@@ -15,7 +16,7 @@
 
 .tasklist-container {
     width: 80%;
-    margin-top: 1rem;
+    margin-block: 1rem;
     @include flexCenterColumn;
     gap: 1rem;
 }

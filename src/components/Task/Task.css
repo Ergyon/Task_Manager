@@ -70,6 +70,7 @@ body.dark {
   font-family: "Inter";
   transition: 0.3s;
   border: 1px solid rgba(218, 216, 216, 0.932);
+  cursor: pointer;
 }
 .task:hover {
   box-shadow: 0 4px 5px rgb(138, 136, 136);
@@ -84,7 +85,6 @@ body.dark {
 .task__name {
   font-size: 1.2rem;
   font-weight: 500;
-  position: relative;
   display: inline-block;
   margin: 0;
   margin-left: 1rem;
@@ -193,15 +193,69 @@ body.dark {
   font-size: 12px;
 }
 
+.launch-modal {
+  background-color: white;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid rgba(80, 79, 79, 0.87);
+  border-radius: 15px;
+  padding: 20px 0px;
+  width: 90%;
+  max-width: 350px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.281);
+  font-family: "Inter";
+  z-index: 100;
+}
+.launch-modal__title {
+  font-size: 18px;
+  font-weight: 400;
+  margin: 0 0 10px 0;
+  color: rgba(41.5094339623, 40.9905660377, 40.9905660377, 0.87);
+}
+.launch-modal__task-name {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #1a1a1a;
+}
+.launch-modal__actions {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 2.5rem;
+}
+.launch-modal__btn {
+  font-size: 14px;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.281);
+}
+.launch-modal__btn--confirm {
+  background-color: #1a1a1a;
+  color: rgb(248, 248, 248);
+}
+.launch-modal__btn--confirm:hover {
+  box-shadow: rgb(0, 0, 0) 2px 2px 3px 0px inset, rgba(61, 58, 58, 0.5) -3px -3px 6px 1px inset;
+}
+.launch-modal__btn--cancel {
+  background-color: rgb(248, 248, 248);
+}
+.launch-modal__btn--cancel:hover {
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.158);
+}
+
 body.dark .task {
   background-color: #1a1a1a;
 }
 body.dark .task__name {
-  color: #e5e7eb;
+  color: rgb(248, 248, 248);
 }
 body.dark .task__category {
   background-color: rgba(34, 182, 162, 0.3960784314);
-  color: #ede9fe;
+  color: rgb(248, 248, 248);
 }
 body.dark .task__btn {
   background-color: rgba(80, 79, 79, 0.87);

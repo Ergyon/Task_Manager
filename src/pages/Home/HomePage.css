@@ -23,6 +23,24 @@
     transform: translateX(250px);
   }
 }
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 body {
   margin: 0;
   padding: 0;
@@ -50,6 +68,7 @@ body.dark {
   flex-direction: column;
   align-items: center;
   margin-inline: 20%;
+  position: relative;
 }
 
 .home-title {
@@ -62,7 +81,7 @@ body.dark {
 
 .tasklist-container {
   width: 80%;
-  margin-top: 1rem;
+  margin-block: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -7,12 +7,11 @@
     font-family: $fontText;
     transition: 0.3s;
     border: 1px solid $lightGrey;
+    cursor: pointer;
     &:hover {
-        // box-shadow: $shadowDark;
-        // box-shadow: 2px 2px 3px 0px #00000088;
         box-shadow: 0 4px 5px rgb(138, 136, 136);
     }
-
+    
     &__content {
         flex: 1;
         @include flexCenterBetween;
@@ -20,9 +19,9 @@
     }
 
     &__name {
+        // position: relative;
         font-size: 1.2rem;
         font-weight: 500;
-        position: relative;
         display: inline-block;
         margin: 0;
         margin-left: 1rem;
@@ -153,53 +152,114 @@
     }
 }
 
+.launch-modal {
+    background-color: white;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    // border: 4px doubled black;
+    border: 2px solid $grey;
+    border-radius: 15px;
+    padding: 20px 0px;
+    width: 90%;
+    max-width: 350px;
+    text-align: center;
+    box-shadow: $shadowMenu;
+    font-family: $fontText;
+    z-index: 100;
+
+    &__title {
+        font-size: 18px;
+        font-weight: 400;
+        margin: 0 0 10px 0;
+        color: darken($grey, 15%);
+    }
+
+    &__task-name {
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: $mainColorDark;
+    }
+
+    &__actions {
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+        margin-top: 2.5rem;
+    }
+
+    &__btn {
+        font-size: 14px;
+        padding: 6px 14px;
+        border: none;
+        border-radius: 10px;
+        box-shadow: $shadowMenu;
+        
+        &--confirm {
+            background-color: $mainColorDark;
+            color: $mainColorLight;
+            &:hover {
+                box-shadow: $shadowInsetDark;
+            }
+        }
+        &--cancel {
+            background-color: $mainColorLight;
+            &:hover {
+                box-shadow: $shadowInsetLight2;
+            }
+        }
+    }
+}
+
 // Dark
 body.dark {
     .task {
         background-color: $mainColorDark;
+        
+        &__name {
+            color: $mainColorLight;
+        }
+    
+        &__category {
+            background-color: $taskCategoryDark;
+            color: $mainColorLight;
+        }
+    
+        &__btn {
+            background-color: $grey;
+            color: $lightGrey;
+        }
+    
+        &__btn--delete:hover {
+            background-color: $ctaDeleteDark;
+            color: $mainColorLight;
+        }
+    
+        &__btn--complete:hover {
+            background-color: $ctaCompleteDark;
+            color: $mainColorLight;
+        }
+    
+        &__priority-badge {
+            border: none;
+        }
+    
+        &__date {
+            color: $lightGrey;
+        }
+    
+        &__date--deadline.task__date--soon {
+            color: lighten($deadlineSoon, 10%);
+        }
+    
+        &__date--deadline.task__date--today {
+            color: lighten($deadlineToday, 25%);
+        }
+    
+        &__date--deadline.task__date--overdue {
+            color: $deadlineOverdue;
+        }
     }
 
-    .task__name {
-        color: #e5e7eb;
-    }
-
-    .task__category {
-        background-color: $taskCategoryDark;
-        color: #ede9fe;
-    }
-
-    .task__btn {
-        background-color: $grey;
-        color: $lightGrey;
-    }
-
-    .task__btn--delete:hover {
-        background-color: $ctaDeleteDark;
-        color: $mainColorLight;
-    }
-
-    .task__btn--complete:hover {
-        background-color: $ctaCompleteDark;
-        color: $mainColorLight;
-    }
-
-    .task__priority-badge {
-        border: none;
-    }
-
-    .task__date {
-        color: $lightGrey;
-    }
-
-    .task__date--deadline.task__date--soon {
-        color: lighten($deadlineSoon, 10%);
-    }
-
-    .task__date--deadline.task__date--today {
-        color: lighten($deadlineToday, 25%);
-    }
-
-    .task__date--deadline.task__date--overdue {
-        color: $deadlineOverdue;
-    }
 }

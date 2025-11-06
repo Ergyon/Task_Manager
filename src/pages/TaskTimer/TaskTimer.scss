@@ -1,0 +1,123 @@
+@use '../../index.scss' as*;
+
+.timer-locked {
+    margin: auto;
+    background-color: $mainColorLight;
+    width: 60%;
+    border-radius: 10px;
+    box-shadow: $shadowInsetLight2;
+    padding: 1rem;
+
+    &__content {
+        font-family: $fontHead;
+        text-align: center;
+        h2 {
+            font-size: 4rem;
+            font-weight: 600;
+            padding-bottom: 1rem;
+        }
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 400;
+          }
+    }
+}
+
+.timer {
+    text-align: center;
+    width: 80%;
+
+    box-shadow: $shadowBoxModal2;
+    border-radius: 6px;
+    margin: auto;
+    margin-top: 5rem;
+    padding: 2rem 0;
+
+    &__title {
+        font-family: $fontGlobal;
+        font-weight: 500;
+        font-size: 3rem;
+        margin: 1rem 0 5rem 0;
+    }
+
+    &__display {
+        margin-bottom: 8rem;
+    }
+
+    &__input-group {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    &__input {
+        font-size: 3.5rem;
+        border: 1px solid $mainColorLight;
+        border-radius: 8px;
+        padding: 6px 0;
+        text-align: center;
+        box-shadow: $shadowInsetLight;
+        transition: 0.2s;
+        &:hover {
+            border: 1px solid $lightGrey;
+        }
+    }
+
+    &__separator {
+        font-size: 3.5rem;
+    }
+
+    &__actions {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 2rem;
+    }
+
+    &__btn {
+        font-size: 1.2rem;
+        font-weight: 500;
+        font-family: $fontGlobal;
+        padding: 2px 12px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        transition: 0.2s all ease;
+        &:hover {
+            transform: translateY(1px);
+            box-shadow: $shadowInsetLight;
+        }
+
+        &--cancel {
+            background-color: lighten($ctaDelete, 25%);
+            color: $mainColorLight;
+        }
+
+        &--confirm {
+            background-color: rgba(238, 234, 15, 0.747);
+        }
+    }
+}
+
+body.dark {
+    .timer {
+        box-shadow: $shadowDark;
+        &__input {
+            background-color: $mainColorDark;
+            box-shadow: $shadowInsetDark;
+            color: $mainColorLight;
+            border: none;
+        }
+        &__btn {
+            &:hover {
+                box-shadow: $shadowInsetDark;
+            }
+            &--cancel {
+                background-color: $ctaDeleteDark;
+            }
+            &--confirm {
+                background-color: rgba(241, 238, 9, 0.808); 
+            }
+            
+        }
+    }
+}
