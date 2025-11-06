@@ -13,7 +13,7 @@ const Header = () => {
         <Link to="/">Tâches</Link>
         <Link to="/agenda">Agenda</Link>
         <Link to="/stats">Statistiques</Link>
-        <Link to="/tasktimer">Timer</Link>
+        <Link to="/timer/:taskId">Timer</Link>
       </nav>
       <button className="header__switchBtn" onClick={toggleTheme}>
         <Lightbulb size={18} />

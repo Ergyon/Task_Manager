@@ -33,7 +33,7 @@ const Stats = () => {
       />
       {filteredTasks.length === 0 ? (
         <div className="stats-empty">
-          <span>Aucune statistique disponible pour le moment</span>
+          <span>Aucune statistique disponible pour le moment.</span>
         </div>
       ) : (
         <>

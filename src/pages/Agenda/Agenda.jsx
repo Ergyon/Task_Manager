@@ -37,7 +37,7 @@ const Agenda = () => {
         <div className="agenda-locked">
           <div className="agenda-locked__content">
             <h2>Agenda verrouillé</h2>
-            <h3>Créez une tâche complète pour accéder à l'agenda</h3>
+            <h3>Créez une tâche complète pour accéder à l'agenda.</h3>
           </div>
         </div>
       )}
