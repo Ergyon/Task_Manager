@@ -150,6 +150,9 @@ body.dark {
   background-color: rgba(238, 234, 15, 0.747);
 }
 
+body.dark .timer-locked {
+  background-color: #1a1a1a;
+}
 body.dark .timer {
   box-shadow: 0 2px 3px rgba(134, 132, 132, 0.658);
 }

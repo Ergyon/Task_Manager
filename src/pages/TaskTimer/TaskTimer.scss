@@ -99,6 +99,9 @@
 }
 
 body.dark {
+    .timer-locked {
+        background-color: $mainColorDark;
+    }
     .timer {
         box-shadow: $shadowDark;
         &__input {

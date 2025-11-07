@@ -23,6 +23,24 @@
     transform: translateX(250px);
   }
 }
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 body {
   margin: 0;
   padding: 0;
@@ -222,7 +240,7 @@ body.dark .day-details__close,
 }
 body.dark .day-details__task,
 .dark .day-details__task {
-  background-color: rgba(80, 79, 79, 0.87);
+  background-color: rgba(54.3396226415, 53.6603773585, 53.6603773585, 0.87);
   border-color: rgba(80, 79, 79, 0.87);
 }
 body.dark .day-details__task:hover,
@@ -268,6 +286,7 @@ body.dark .day-details__initDate,
 body.dark .day-details__task-deadline,
 .dark .day-details__task-deadline {
   background-color: rgba(187, 14, 14, 0.836);
+  font-weight: 600;
   box-shadow: rgb(0, 0, 0) 2px 2px 3px 0px inset, rgba(61, 58, 58, 0.5) -3px -3px 6px 1px inset;
 }
 body.dark .day-details__task-nodeadline,

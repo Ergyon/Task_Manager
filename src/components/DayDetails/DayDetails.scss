@@ -205,7 +205,7 @@ body.dark .day-details,
   }
   
   &__task {
-    background-color: $grey;
+    background-color: darken($grey, 10%);
     border-color: $grey;
     
     &:hover {
@@ -251,6 +251,7 @@ body.dark .day-details,
 
   &__task-deadline {
     background-color: $dayDetailsDeadline;
+    font-weight: 600;
     box-shadow: $shadowInsetDark;
   }
   
